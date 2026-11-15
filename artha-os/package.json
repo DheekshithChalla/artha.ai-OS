@@ -1,0 +1,25 @@
+{
+  "name": "artha-os",
+  "version": "1.0.0",
+  "description": "ArthaOS - Autonomous AI Financial Operating System for Bharat & Beyond. Built for Arthathon 2026.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test/run_tests.js",
+    "serve:py": "python3 server.py"
+  },
+  "keywords": [
+    "arthathon-2026",
+    "fintech",
+    "ai-for-finance",
+    "upi-fraud-detection",
+    "budget-2025-tax-calculator",
+    "sms-parser",
+    "wealth-compounding",
+    "sme-gst"
+  ],
+  "author": "dheekshithchalla",
+  "license": "MIT"
+}
