@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArthaOS | Autonomous AI Financial Intelligence & Wealth Operating System (Arthathon 2026)</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#0D0E12',
+            brandCard: '#13141A',
+            brandMuted: '#6B7280',
+            brandBorder: '#E5E7EB',
+            brandBorderDark: 'rgba(255, 255, 255, 0.08)',
+            accentMint: '#00D084',
+            accentIndigo: '#4F46E5',
+            accentAmber: '#F59E0B',
+            accentRose: '#E11D48',
+            accentCyan: '#06B6D4'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter, Plus Jakarta Sans, Instrument Serif, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- High-End Editorial FinTech Aesthetics (Inspired by Stellar, Synex, Awsmd) -->
+  <style>
+    :root {
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #F8F9FA;
+      color: #0F172A;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(0, 208, 132, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 88% 18%, rgba(79, 70, 229, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Dark Mode Theme */
+    body.dark-mode {
+      background-color: #0A0B0E !important;
+      color: #F8FAFC !important;
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(0, 208, 132, 0.09) 0%, transparent 40%),
+        radial-gradient(circle at 88% 18%, rgba(79, 70, 229, 0.12) 0%, transparent 45%) !important;
+    }
+    body.dark-mode .white-card {
+      background: #121318 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      color: #F8FAFC !important;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5) !important;
+    }
+    body.dark-mode header, body.dark-mode nav, body.dark-mode footer {
+      background: #0D0E12 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+    body.dark-mode .text-slate-900, body.dark-mode .text-slate-800 {
+      color: #F8FAFC !important;
+    }
+    body.dark-mode .text-slate-600, body.dark-mode .text-slate-500 {
+      color: #94A3B8 !important;
+    }
+    body.dark-mode input, body.dark-mode textarea, body.dark-mode select {
+      background-color: #161820 !important;
+      color: #F8FAFC !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+    }
+    body.dark-mode .subtle-bg {
+      background-color: #161820 !important;
+    }
+
+    .font-serif-italic {
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+
+    .tnum, .font-mono {
+      font-family: var(--font-mono);
+      font-feature-settings: "tnum";
+    }
+
+    /* Precision Clean White Card (Synex / Awsmd Style) */
+    .white-card {
+      background: #FFFFFF;
+      border: 1px solid #EAECEF;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.01);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .white-card:hover {
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Stellar Matte Black Card (Image 2 Reference) */
+    .stellar-card {
+      background: linear-gradient(135deg, #131418 0%, #1A1C23 60%, #101115 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      color: #FFFFFF;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .stellar-card::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -40%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(0, 208, 132, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Accordion / Tab Pill (Stellar & Synex Style) */
+    .tab-pill-btn {
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #4B5563;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .tab-pill-btn:hover {
+      color: #111827;
+      background: #F3F4F6;
+    }
+    .tab-pill-btn.active {
+      background: #111827 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    body.dark-mode .tab-pill-btn {
+      color: #94A3B8;
+    }
+    body.dark-mode .tab-pill-btn:hover {
+      color: #FFFFFF;
+      background: #1E2028;
+    }
+    body.dark-mode .tab-pill-btn.active {
+      background: #FFFFFF !important;
+      color: #0F172A !important;
+    }
+
+    /* Numbered Marker Badge [1], [2] */
+    .num-marker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #6B7280;
+      letter-spacing: 0.05em;
+    }
+
+    /* Range slider custom track */
+    input[type="range"] {
+      accent-color: #111827;
+    }
+    body.dark-mode input[type="range"] {
+      accent-color: #00D084;
+    }
+  </style>
+</head>
+<body class="flex flex-col">
+
+  <!-- ================= TOP APP HEADER ================= -->
+  <header class="border-b border-gray-200 bg-white/90 backdrop-blur-md sticky top-0 z-50 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      
+      <!-- Brand & Identity -->
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-2xl bg-black text-white flex items-center justify-center font-black text-xl shadow-md">
+          अ
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-xl font-extrabold tracking-tight text-slate-900 font-['Plus_Jakarta_Sans']">
+              artha<span class="text-emerald-500 font-light">.ai</span>
+            </h1>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-200">
+              Arthathon 2026
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">Autonomous Financial Intelligence & Wealth Operating System</p>
+        </div>
+      </div>
+
+      <!-- Center: 6 Judges Persona Switcher (Dropdown + Avatars) -->
+      <div class="flex items-center gap-2.5 bg-slate-50 border border-slate-200/80 p-1.5 rounded-2xl subtle-bg">
+        <span class="text-xs font-bold text-slate-500 pl-2 flex items-center gap-1.5">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>Judge:</span>
+        </span>
+        <select id="judge-persona-select" class="bg-white text-xs font-bold text-slate-800 border border-slate-200 rounded-xl px-3 py-1.5 focus:outline-none focus:border-slate-800 cursor-pointer shadow-sm">
+          <option value="pawan">👨‍💻 Pawan Nagwani • Google (Search AI)</option>
+          <option value="kumar">⚡ Kumar Pallav • Perplexity (MTS)</option>
+          <option value="richa">👩‍💼 Richa Agrawal • Cadence (Sr. Principal Eng)</option>
+          <option value="pravesh">🔬 Pravesh Agrawal • Mistral AI (Research Scientist)</option>
+          <option value="viola">📊 Viola Chen • Bernstein (Sr. Research Associate)</option>
+          <option value="manoj">🚀 Manoj Sarda • Elimentary (Co-founder)</option>
+        </select>
+
+        <button id="btn-theme-toggle" class="p-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-black shadow-sm transition" title="Toggle Dark/Light Mode">
+          <i data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+
+        <button id="btn-export-audit" class="flex items-center gap-1.5 text-xs font-extrabold px-3.5 py-2 rounded-xl bg-black text-white hover:bg-slate-800 shadow-sm transition">
+          <i data-lucide="arrow-down-to-line" class="w-3.5 h-3.5"></i>
+          <span>Export Audit</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Judge Context Sub-Bar (Shows Current Judge's Company & Live Credentials) -->
+    <div class="bg-slate-50 border-t border-slate-200/60 px-4 sm:px-6 py-2 text-xs text-slate-600 flex flex-wrap items-center justify-between gap-3 subtle-bg">
+      <div id="judge-status-bar" class="flex items-center gap-3">
+        <!-- Rendered via JS -->
+      </div>
+      <div class="flex items-center gap-4 text-[11px] font-bold">
+        <span class="flex items-center gap-1.5 text-emerald-600"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Real-time UPI Shield</span>
+        <span class="flex items-center gap-1.5 text-indigo-600"><i data-lucide="cpu" class="w-3.5 h-3.5"></i> Budget 2025-26 Tax Slabs</span>
+        <span class="flex items-center gap-1.5 text-slate-500"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Local Sandbox Privacy</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SUB-NAVIGATION TABS (STELLAR & SYNEX STYLE) ================= -->
+  <nav class="border-b border-gray-200 bg-white sticky top-[69px] z-40 overflow-x-auto shadow-sm transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-2 py-2.5 min-w-max">
+      
+      <button data-nav-target="dashboard" class="tab-pill-btn active flex items-center gap-1.5">
+        <span class="num-marker">[ 01 ]</span>
+        <span>Executive Dashboard</span>
+      </button>
+
+      <button data-nav-target="budgeting" class="tab-pill-btn flex items-center gap-1.5">
+        <span class="num-marker">[ 02 ]</span>
+        <span>Smart UPI & SMS</span>
+      </button>
+
+      <button data-nav-target="scam-shield" class="tab-pill-btn flex items-center gap-1.5">
+        <span class="num-marker">[ 03 ]</span>
+        <span>UPI Scam Guardian</span>
+      </button>
+
+      <button data-nav-target="tax-engine" class="tab-pill-btn flex items-center gap-1.5">
+        <span class="num-marker">[ 04 ]</span>
+        <span>Tax Architect (Budget 25-26)</span>
+      </button>
+
+      <button data-nav-target="portfolio" class="tab-pill-btn flex items-center gap-1.5">
+        <span class="num-marker">[ 05 ]</span>
+        <span>SIP & Wealth Runway</span>
+      </button>
+
+      <button data-nav-target="market-insights" class="tab-pill-btn flex items-center gap-1.5">
+        <span class="num-marker">[ 06 ]</span>
+        <span>NSE Backtesting</span>
+      </button>
+
+      <button data-nav-target="sme-finance" class="tab-pill-btn flex items-center gap-1.5">
+        <span class="num-marker">[ 07 ]</span>
+        <span>MSME & GST Engine</span>
+      </button>
+
+      <button data-nav-target="copilot" class="tab-pill-btn flex items-center gap-1.5">
+        <span class="num-marker">[ 08 ]</span>
+        <span>Artha AI Copilot</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ================= MAIN EDITORIAL CONTENT ================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+
+    <!-- ========================================================= -->
+    <!-- TAB 1: EXECUTIVE DASHBOARD (SYNEX & STELLAR HYBRID) -->
+    <!-- ========================================================= -->
+    <div id="tab-dashboard" class="tab-panel space-y-8">
+      
+      <!-- Editorial Hero Header (Synex Style) -->
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider border border-slate-200">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-500"></i>
+          <span>Autonomous Wealth Intelligence</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Clarity and control for <span class="font-serif-italic font-normal text-slate-800">every part of your wealth.</span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-500 max-w-2xl">
+          Get a unified, structured view of your UPI cash-flows, tax regimes, cyber-safety alerts, and inflation-proof compounding runway.
+        </p>
+      </div>
+
+      <!-- Top Section: Stellar Matte Black Card + 3 Numbered Feature Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- Left: Stellar Matte Card (Image 2 Match) (5 cols) -->
+        <div class="lg:col-span-5 stellar-card p-7 flex flex-col justify-between min-h-[320px]">
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">
+                  ✦
+                </div>
+                <span class="font-extrabold text-sm tracking-widest uppercase">Artha Black</span>
+              </div>
+              <span class="text-[11px] font-mono tracking-widest text-slate-400">RUPAY PLATINUM</span>
+            </div>
+
+            <!-- Gold Metal Chip (Exact Stellar Design) -->
+            <div class="w-12 h-9 rounded-lg bg-gradient-to-tr from-amber-300 via-yellow-200 to-amber-400 border border-amber-200 shadow-inner mb-6 relative">
+              <div class="absolute inset-1 border border-amber-600/30 rounded"></div>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Total Liquid Capital</span>
+              <h3 id="card-hero-balance" class="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight text-white">₹1,87,100.50</h3>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-white/10 mt-6 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] uppercase font-mono tracking-widest text-slate-400 block">Judge Linked UPI VPA</span>
+              <span id="card-hero-vpa" class="font-mono text-sm font-bold text-slate-200">pawan.nagwani@google</span>
+            </div>
+            <div class="font-mono text-xs text-slate-400 tracking-widest">
+              0123 4567 8901 0203
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3 Synex-Style Numbered Metric Columns (7 cols) -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          
+          <!-- Column [1] Total Inflow -->
+          <div class="white-card p-6 flex flex-col justify-between">
+            <div>
+              <span class="num-marker block mb-3">[ 01 ] CASH INFLOW</span>
+              <h4 id="dash-metric-income" class="text-2xl lg:text-3xl font-extrabold font-mono text-slate-900">₹1,45,000</h4>
+              <p class="text-xs text-emerald-600 font-bold mt-2 flex items-center gap-1">
+                <span>↑ 100% Verified Payroll</span>
+              </p>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 leading-relaxed">
+              Consolidated from bank NEFT credits and professional retainers.
+            </p>
+          </div>
+
+          <!-- Column [2] Monthly Burn -->
+          <div class="white-card p-6 flex flex-col justify-between">
+            <div>
+              <span class="num-marker block mb-3">[ 02 ] MONTHLY BURN</span>
+              <h4 id="dash-metric-spend" class="text-2xl lg:text-3xl font-extrabold font-mono text-slate-900">₹89,286</h4>
+              <p class="text-xs text-slate-500 font-semibold mt-2">
+                Across 14 UPI alerts
+              </p>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 leading-relaxed">
+              Real-time classification of food, utilities, rent, and subscriptions.
+            </p>
+          </div>
+
+          <!-- Column [3] Savings Rate & Leaks -->
+          <div class="white-card p-6 flex flex-col justify-between">
+            <div>
+              <span class="num-marker block mb-3">[ 03 ] SAVINGS RATE</span>
+              <h4 id="dash-metric-savings-rate" class="text-2xl lg:text-3xl font-extrabold font-mono text-indigo-600">38.4%</h4>
+              <p class="text-xs text-amber-600 font-bold mt-2">
+                ₹41,376/yr Leaks Flagged
+              </p>
+            </div>
+            <p class="text-xs text-slate-500 mt-4 leading-relaxed">
+              Automated subscription cull suggests ₹11,994 in immediate recovery.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Middle Section: Visual Category Donut & Health Radar (Stellar "Our Services" Style) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Category Breakdown (8 cols) -->
+        <div class="lg:col-span-8 white-card p-7">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div>
+              <span class="num-marker block mb-1">[ ALLOCATION INTELLIGENCE ]</span>
+              <h3 class="font-extrabold text-lg text-slate-900">Live Category Spending Distribution</h3>
+            </div>
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+              Deterministic NLP
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-5 h-60 relative flex items-center justify-center">
+              <canvas id="dash-category-chart"></canvas>
+            </div>
+            <div class="md:col-span-7 space-y-3" id="dash-category-bars">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Health & Safety Index (4 cols) -->
+        <div class="lg:col-span-4 white-card p-7 flex flex-col justify-between">
+          <div>
+            <span class="num-marker block mb-1">[ HEALTH RADAR ]</span>
+            <h3 class="font-extrabold text-lg text-slate-900 mb-4">Financial Safety Index</h3>
+
+            <div class="text-center py-6 bg-slate-50 rounded-2xl border border-slate-200 subtle-bg">
+              <div id="dash-health-score" class="text-5xl font-black font-mono text-slate-900 tracking-tight">
+                85/100
+              </div>
+              <p class="text-xs text-slate-500 mt-2 font-bold uppercase tracking-wider">Top 8% Liquidity Tier</p>
+            </div>
+
+            <div class="mt-4 space-y-2 text-xs">
+              <div class="flex justify-between p-3 rounded-xl bg-slate-50 border border-slate-200 subtle-bg">
+                <span class="text-slate-500 font-medium">Emergency Fund Buffer</span>
+                <span class="text-emerald-600 font-bold font-mono">5.2 Months</span>
+              </div>
+              <div class="flex justify-between p-3 rounded-xl bg-slate-50 border border-slate-200 subtle-bg">
+                <span class="text-slate-500 font-medium">Debt-to-Income Exposure</span>
+                <span class="text-slate-800 font-bold font-mono">14.2% (Healthy)</span>
+              </div>
+              <div class="flex justify-between p-3 rounded-xl bg-slate-50 border border-slate-200 subtle-bg">
+                <span class="text-slate-500 font-medium">Inflation Alpha</span>
+                <span class="text-indigo-600 font-bold font-mono">+6.5% vs CPI</span>
+              </div>
+            </div>
+          </div>
+
+          <button data-nav-target="copilot" class="mt-4 w-full py-3 px-4 rounded-xl bg-black text-white hover:bg-slate-800 text-xs font-extrabold flex items-center justify-center gap-2 transition shadow-sm">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+            <span>Consult Artha Copilot</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Bottom Section: Transactions Ledger & Silent Subscriptions -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Live Transactions Feed -->
+        <div class="white-card p-7">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <span class="num-marker block mb-1">[ REAL-TIME LEDGER ]</span>
+              <h3 class="font-extrabold text-base text-slate-900">Recent Bank & UPI Streams</h3>
+            </div>
+            <button data-nav-target="budgeting" class="text-xs font-bold text-slate-900 hover:underline">
+              View All 14 Alerts →
+            </button>
+          </div>
+          <div id="dash-recent-tx-list" class="space-y-3">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Silent Subscriptions Leaks -->
+        <div class="white-card p-7 border-amber-200/80">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <span class="num-marker block mb-1 text-amber-600">[ LEAK DETECTOR ]</span>
+              <h3 class="font-extrabold text-base text-slate-900">Silent Recurring Auto-Debits</h3>
+            </div>
+            <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+              ₹41,376/yr At Risk
+            </span>
+          </div>
+          <div id="dash-sub-leaks-list" class="space-y-3">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 2: SMART BUDGETING & SMS -->
+    <!-- ========================================================= -->
+    <div id="tab-budgeting" class="tab-panel hidden space-y-6">
+      
+      <div class="white-card p-7">
+        <div class="space-y-1 mb-6">
+          <span class="num-marker block">[ INGESTION ENGINE ]</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Natural Language Bank SMS & UPI Parser</h2>
+          <p class="text-xs text-slate-500">
+            Paste any bank SMS notification from HDFC, SBI, ICICI, Axis, Paytm, or GPay. Automatically normalizes merchants, extracts reference numbers, and updates your ledger client-side.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-4">
+            <textarea id="sms-input-text" rows="3" class="w-full text-xs font-mono p-3.5 rounded-2xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg focus:border-slate-800 focus:outline-none" placeholder="Paste bank SMS here... e.g. 'Sent Rs. 489.00 from HDFC Bank A/C *4012 to SWIGGY UPI ref 43198001 on 14-11-26. Avail Bal: Rs 42,100.50'"></textarea>
+            
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <span class="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+                <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>100% Client-Side Privacy • Zero Data Leaves Your Device</span>
+              </span>
+              <button id="btn-parse-sms" class="px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-2 shadow-sm transition">
+                <i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i>
+                <span>Parse & Add to Ledger</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sample SMS Quick Clicks -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg">
+            <h4 class="text-xs font-bold text-slate-700 mb-3 flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-500"></i>
+              <span>One-Click Indian SMS Samples:</span>
+            </h4>
+            <div id="sms-samples-list" class="space-y-2">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ledger Table -->
+      <div class="white-card p-7">
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="font-extrabold text-base text-slate-900">Current Monthly Transactions Ledger</h3>
+          <span class="text-xs text-slate-500">Total Entries: <strong class="text-slate-900" id="budget-ledger-count">14</strong></span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="border-b border-slate-200 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <th class="p-3.5">Date & Time</th>
+                <th class="p-3.5">Merchant / Counterparty</th>
+                <th class="p-3.5">Category</th>
+                <th class="p-3.5">UPI Ref / RRN</th>
+                <th class="p-3.5 text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="budget-tx-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 3: UPI SCAM GUARDIAN -->
+    <!-- ========================================================= -->
+    <div id="tab-scam-shield" class="tab-panel hidden space-y-6">
+      
+      <div class="white-card p-7 border-rose-200">
+        <div class="space-y-1 mb-6">
+          <span class="num-marker text-rose-600 block">[ ZERO-DAY CYBER DEFENSE ]</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+            <i data-lucide="shield-alert" class="w-6 h-6 text-rose-600"></i>
+            <span>UPI Shield & Phishing Scam Guardian</span>
+          </h2>
+          <p class="text-xs text-slate-500">
+            Multi-vector threat analyzer intercepting reverse-QR traps, spoofed VPAs, and urgency intimidation tactics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1.5">Suspicious Message / WhatsApp / SMS Text</label>
+              <textarea id="scam-input-text" rows="3" class="w-full text-xs font-mono p-3.5 rounded-2xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg focus:border-slate-800 focus:outline-none" placeholder="Paste the message you received... e.g. 'Enter UPI PIN to receive Rs 25,000 for your OLX listing'"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">Optional: Collect VPA ID / Sender</label>
+                <input type="text" id="scam-input-vpa" class="w-full text-xs font-mono p-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg" placeholder="e.g. sbi-refund-portal@ybl" />
+              </div>
+              <div class="flex items-end">
+                <button id="btn-scan-scam" class="w-full py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm transition">
+                  <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                  <span>Scan for Fraud Vectors</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Test Scenarios -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg">
+            <h4 class="text-xs font-bold text-slate-700 mb-3 flex items-center gap-1.5">
+              <i data-lucide="target" class="w-3.5 h-3.5 text-rose-500"></i>
+              <span>One-Click Test Attack Vectors:</span>
+            </h4>
+            <div id="scam-samples-grid" class="space-y-2">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Scan Output Box -->
+        <div id="scam-result-box" class="mt-6 p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 subtle-bg">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
+            <div id="scam-score-badge" class="px-3.5 py-1.5 rounded-full text-xs font-extrabold"></div>
+            <span class="text-xs text-slate-500 font-medium">NPCI & Cyber Crime Guidelines Model</span>
+          </div>
+
+          <p id="scam-summary-text" class="text-sm font-bold text-slate-900"></p>
+
+          <!-- Deception Vectors Flagged -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Deception Techniques Flagged:</h4>
+            <ul id="scam-vectors-list" class="space-y-2"></ul>
+          </div>
+
+          <!-- Recommendations -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Immediate Safety Protocol:</h4>
+            <ul id="scam-recommendations-list" class="space-y-1.5"></ul>
+          </div>
+
+          <!-- 1930 Cyber Complaint Draft -->
+          <div class="pt-3 border-t border-slate-200">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-xs font-extrabold text-slate-700 flex items-center gap-1.5">
+                <i data-lucide="file-text" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>Generated National Cyber Crime Portal (1930) Complaint Draft:</span>
+              </label>
+              <button id="btn-copy-complaint" class="text-xs text-emerald-600 hover:text-emerald-700 font-bold flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copy Draft</span>
+              </button>
+            </div>
+            <textarea id="scam-complaint-draft" rows="4" readonly class="w-full text-xs font-mono p-3 rounded-xl bg-white border border-slate-300 text-slate-700"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 4: TAX ARCHITECT (BUDGET 2025-26) -->
+    <!-- ========================================================= -->
+    <div id="tab-tax-engine" class="tab-panel hidden space-y-6">
+      
+      <div class="white-card p-7">
+        <div class="space-y-1 mb-6">
+          <span class="num-marker text-indigo-600 block">[ FISCAL OPTIMIZATION ]</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+            <i data-lucide="scale" class="w-6 h-6 text-indigo-600"></i>
+            <span>Smart Tax Architect (FY 2025-26 / Budget 2025-26)</span>
+          </h2>
+          <p class="text-xs text-slate-500">
+            Precision Old vs New Regime comparison incorporating the revised ₹75,000 standard deduction, Sec 87A rebate, and mathematical crossover point.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Inputs (5 cols) -->
+          <div class="lg:col-span-5 space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Gross Annual CTC (₹)</label>
+              <input type="number" id="tax-input-gross" class="w-full text-sm font-mono p-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg font-bold" step="50000" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs text-slate-500 mb-1">Basic Salary</label>
+                <input type="number" id="tax-input-basic" class="w-full text-xs font-mono p-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg" step="25000" />
+              </div>
+              <div>
+                <label class="block text-xs text-slate-500 mb-1">Monthly Rent Paid</label>
+                <input type="number" id="tax-input-rent" class="w-full text-xs font-mono p-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg" step="1000" />
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-1">
+              <input type="checkbox" id="tax-input-metro" class="rounded accent-black w-4 h-4" checked />
+              <label for="tax-input-metro" class="text-xs text-slate-700 font-semibold">Residing in Metro (Bengaluru, Mumbai, Delhi, Chennai, Kolkata)</label>
+            </div>
+
+            <div class="pt-3 border-t border-slate-200 space-y-3">
+              <h4 class="text-xs font-bold text-slate-700">Old Regime Deductions:</h4>
+              
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] text-slate-500 mb-1">Sec 80C (PPF/ELSS/EPF)</label>
+                  <input type="number" id="tax-input-80c" class="w-full text-xs font-mono p-2 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg" max="150000" step="5000" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-slate-500 mb-1">Sec 80D (Health Ins.)</label>
+                  <input type="number" id="tax-input-80d" class="w-full text-xs font-mono p-2 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg" max="100000" step="5000" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] text-slate-500 mb-1">NPS 80CCD(1B)</label>
+                  <input type="number" id="tax-input-nps" class="w-full text-xs font-mono p-2 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg" max="50000" step="5000" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-slate-500 mb-1">Home Loan Sec 24(b)</label>
+                  <input type="number" id="tax-input-loan" class="w-full text-xs font-mono p-2 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg" max="200000" step="10000" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison Output (7 cols) -->
+          <div class="lg:col-span-7 space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Old Regime -->
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-extrabold text-sm text-slate-700">Old Tax Regime</h4>
+                  <span class="text-[10px] text-slate-500 font-mono">Deductions Heavy</span>
+                </div>
+                <div id="tax-result-old-tax" class="text-2xl sm:text-3xl font-extrabold font-mono text-slate-900">₹0</div>
+                <p id="tax-result-old-rate" class="text-xs text-slate-500 mt-1">Effective Rate: 0.0%</p>
+                <div class="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-500">
+                  Total Deductions: <strong id="tax-result-old-deductions" class="text-slate-900">₹0</strong>
+                </div>
+              </div>
+
+              <!-- New Regime -->
+              <div class="p-5 rounded-2xl bg-emerald-50 border border-emerald-300">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-extrabold text-sm text-emerald-800">New Tax Regime</h4>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-200 text-emerald-800">Budget 2025-26</span>
+                </div>
+                <div id="tax-result-new-tax" class="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-800">₹0</div>
+                <p id="tax-result-new-rate" class="text-xs text-emerald-700 mt-1">Effective Rate: 0.0%</p>
+                <div class="mt-3 pt-3 border-t border-emerald-200 text-xs text-emerald-700">
+                  Std Deduction: <strong class="text-emerald-900">₹75,000</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Verdict Card -->
+            <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <h4 id="tax-verdict-title" class="text-sm font-extrabold text-slate-900 mb-1.5"></h4>
+              <p id="tax-verdict-text" class="text-xs text-slate-600 leading-relaxed"></p>
+              <p id="tax-crossover-text" class="text-xs text-amber-600 mt-2.5 font-mono font-bold"></p>
+            </div>
+
+            <!-- Tax Bar Chart -->
+            <div class="h-52">
+              <canvas id="tax-comparison-chart"></canvas>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 5: INVESTING & SIP RUNWAY -->
+    <!-- ========================================================= -->
+    <div id="tab-portfolio" class="tab-panel hidden space-y-6">
+      
+      <div class="white-card p-7">
+        <div class="space-y-1 mb-6">
+          <span class="num-marker text-emerald-600 block">[ WEALTH ACCUMULATION ]</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+            <i data-lucide="trending-up" class="w-6 h-6 text-emerald-600"></i>
+            <span>Interactive Wealth Compounding & SIP Simulator</span>
+          </h2>
+          <p class="text-xs text-slate-500">
+            Simulates Equity Index SIP compounding vs Traditional Fixed Deposits vs 6% CPI Inflation Purchasing Power over 1 to 30 years.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Controls (4 cols) -->
+          <div class="lg:col-span-4 space-y-4">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-700 font-bold">Monthly SIP Amount:</span>
+                <span id="sip-val-amount" class="font-extrabold text-slate-900 font-mono">₹10,000</span>
+              </div>
+              <input type="range" id="sip-input-amount" min="1000" max="100000" step="1000" value="10000" class="w-full" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-700 font-bold">Expected Equity CAGR:</span>
+                <span id="sip-val-return" class="font-extrabold text-emerald-600 font-mono">12.5%</span>
+              </div>
+              <input type="range" id="sip-input-return" min="8" max="18" step="0.5" value="12.5" class="w-full" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-700 font-bold">Investment Horizon:</span>
+                <span id="sip-val-years" class="font-extrabold text-indigo-600 font-mono">15 Yrs</span>
+              </div>
+              <input type="range" id="sip-input-years" min="3" max="30" step="1" value="15" class="w-full" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-500">CPI Inflation Benchmark:</span>
+                <span class="font-mono text-slate-700 font-bold">6.0%</span>
+              </div>
+              <input type="range" id="sip-input-inflation" min="4" max="10" step="0.5" value="6.0" class="w-full" />
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-2 subtle-bg">
+              <h4 class="font-bold text-slate-800 flex items-center gap-1.5">
+                <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i>
+                <span>FinTech Educational Primer:</span>
+              </h4>
+              <p class="text-slate-600 leading-relaxed text-[11px]">
+                <strong>Nifty 50 Index Fund:</strong> Holds India's top 50 corporate leaders. Low expense ratio (&lt;0.20%). Proven to beat 85% of active mutual funds over rolling 10-year windows.
+              </p>
+            </div>
+          </div>
+
+          <!-- Wealth Results & Chart (8 cols) -->
+          <div class="lg:col-span-8 space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg">
+                <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Future Nominal Corpus (Equity SIP)</span>
+                <div id="sip-result-equity-val" class="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-600 mt-1">₹0</div>
+                <p id="sip-result-wealth-created" class="text-xs text-emerald-700 mt-1 font-semibold"></p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg">
+                <span class="text-xs text-slate-500 font-bold uppercase tracking-wider">Total Principal Invested</span>
+                <div id="sip-result-invested" class="text-2xl sm:text-3xl font-extrabold font-mono text-slate-900 mt-1">₹0</div>
+                <p id="sip-result-real-power" class="text-xs text-indigo-600 mt-1 font-mono font-bold"></p>
+              </div>
+            </div>
+
+            <div class="h-64">
+              <canvas id="portfolio-wealth-chart"></canvas>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-slate-200" id="portfolio-flags-list">
+              <!-- Rendered via JS -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 6: NSE BACKTESTING -->
+    <!-- ========================================================= -->
+    <div id="tab-market-insights" class="tab-panel hidden space-y-6">
+      
+      <div class="white-card p-7">
+        <div class="space-y-1 mb-6">
+          <span class="num-marker text-slate-500 block">[ QUANTITATIVE ANALYSIS ]</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+            <i data-lucide="bar-chart-2" class="w-6 h-6 text-indigo-600"></i>
+            <span>NSE Market Insights & Backtesting Sandbox</span>
+          </h2>
+          <p class="text-xs text-slate-500">
+            Strictly historical backtesting & paper trading compliant with hackathon guidelines (no real money execution).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Select Backtest Strategy</label>
+              <select id="market-strategy-select" class="w-full text-xs font-bold p-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 subtle-bg">
+                <option value="dca">Systematic Monthly SIP (Rupee-Cost Averaging)</option>
+                <option value="dip">50-DMA Moving Average Dip Accumulator</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-700 font-bold">Historical Time Horizon:</span>
+                <span id="market-horizon-val" class="font-mono text-slate-900 font-extrabold">5 Years</span>
+              </div>
+              <input type="range" id="market-horizon-slider" min="3" max="15" step="1" value="5" class="w-full" />
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 subtle-bg">
+              <span class="text-slate-900 font-bold block mb-1">Strategy Methodology:</span>
+              <p id="backtest-desc-text" class="leading-relaxed"></p>
+            </div>
+          </div>
+
+          <!-- Strategy Performance Cards -->
+          <div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 subtle-bg">
+              <span class="text-[11px] text-slate-500 font-bold uppercase">Simulated Corpus</span>
+              <div id="backtest-corpus-val" class="text-lg font-extrabold font-mono text-emerald-600 mt-1">₹0</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 subtle-bg">
+              <span class="text-[11px] text-slate-500 font-bold uppercase">Historical CAGR</span>
+              <div id="backtest-cagr-val" class="text-lg font-extrabold font-mono text-slate-900 mt-1">0%</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 subtle-bg">
+              <span class="text-[11px] text-slate-500 font-bold uppercase">Max Drawdown</span>
+              <div id="backtest-dd-val" class="text-lg font-extrabold font-mono text-rose-600 mt-1">0%</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 subtle-bg">
+              <span class="text-[11px] text-slate-500 font-bold uppercase">Sharpe Ratio</span>
+              <div id="backtest-sharpe-val" class="text-lg font-extrabold font-mono text-indigo-600 mt-1">0.0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benchmarks & News Feed -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-extrabold text-sm text-slate-900 mb-3">NSE Indices 10-Year Track Record</h3>
+            <table class="w-full text-left">
+              <thead>
+                <tr class="border-b border-slate-200 text-[11px] text-slate-400 uppercase font-bold">
+                  <th class="p-3">Index</th>
+                  <th class="p-3">10Y CAGR</th>
+                  <th class="p-3">P/E</th>
+                  <th class="p-3">Volatility</th>
+                  <th class="p-3">Status</th>
+                </tr>
+              </thead>
+              <tbody id="market-benchmarks-body"></tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 class="font-extrabold text-sm text-slate-900 mb-3">Macro News-Sentiment Correlation</h3>
+            <div id="market-news-feed" class="space-y-3"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 7: MSME & GST -->
+    <!-- ========================================================= -->
+    <div id="tab-sme-finance" class="tab-panel hidden space-y-6">
+      
+      <div class="white-card p-7">
+        <div class="space-y-1 mb-6">
+          <span class="num-marker text-emerald-600 block">[ ENTERPRISE RUNWAY ]</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+            <i data-lucide="building-2" class="w-6 h-6 text-emerald-600"></i>
+            <span>MSME Financial Health & GST Automation</span>
+          </h2>
+          <p class="text-xs text-slate-500">
+            Automated GST invoice tax breakdowns, 90-day working capital buffer runway, and business loan EMI stress tester.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- GST Invoice Section -->
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg space-y-3">
+            <h3 class="font-extrabold text-sm text-slate-900 flex items-center gap-1.5">
+              <i data-lucide="file-check" class="w-4 h-4 text-emerald-600"></i>
+              <span>GST Invoice & ITC Estimator</span>
+            </h3>
+
+            <div>
+              <label class="block text-xs text-slate-500 mb-1">Invoice Base Amount (Excl. Tax)</label>
+              <input type="number" id="sme-gst-base" value="65000" class="w-full text-xs font-mono p-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 font-bold" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs text-slate-500 mb-1">GST Slab Rate</label>
+                <select id="sme-gst-rate" class="w-full text-xs p-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 font-bold">
+                  <option value="5">5% (Essentials)</option>
+                  <option value="12">12% (Textiles/Food)</option>
+                  <option value="18" selected>18% (Standard Services)</option>
+                  <option value="28">28% (Luxury/Auto)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-500 mb-1">Input Tax Credit (ITC)</label>
+                <input type="number" id="sme-gst-itc" value="4200" class="w-full text-xs font-mono p-2.5 rounded-xl bg-white border border-slate-300 text-slate-900" />
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-1">
+              <input type="checkbox" id="sme-gst-interstate" class="rounded accent-black w-4 h-4" />
+              <label for="sme-gst-interstate" class="text-xs text-slate-700 font-semibold">Inter-State Sale (IGST applies)</label>
+            </div>
+
+            <div class="pt-3 border-t border-slate-200 text-xs space-y-2">
+              <div class="flex justify-between">
+                <span class="text-slate-500">Gross Invoice Total:</span>
+                <span id="sme-res-invoice-total" class="font-extrabold text-slate-900 font-mono">₹0</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Net GST to Remit:</span>
+                <span id="sme-res-net-gst" class="font-extrabold text-emerald-600 font-mono">₹0</span>
+              </div>
+              <p id="sme-res-gst-breakdown" class="text-[11px] text-slate-500 font-mono"></p>
+            </div>
+          </div>
+
+          <!-- 90-Day Runway -->
+          <div class="lg:col-span-2 p-5 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-sm text-slate-900 flex items-center gap-1.5">
+                <i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i>
+                <span>90-Day Working Capital Cash Flow Buffer</span>
+              </h3>
+              <span id="sme-runway-months" class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-mono text-xs font-bold"></span>
+            </div>
+
+            <div class="h-48">
+              <canvas id="sme-runway-chart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Loan Stress Tester -->
+        <div class="mt-6 p-5 rounded-2xl bg-slate-50 border border-slate-200 subtle-bg">
+          <h3 class="font-extrabold text-sm text-slate-900 mb-3 flex items-center gap-1.5">
+            <i data-lucide="calculator" class="w-4 h-4 text-amber-500"></i>
+            <span>Machinery / Expansion Loan EMI & DSCR Stress Tester</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <div>
+              <label class="block text-xs text-slate-500 mb-1">Loan Capital (₹)</label>
+              <input type="number" id="sme-loan-amount" value="1200000" step="50000" class="w-full text-xs font-mono p-2.5 rounded-xl bg-white border border-slate-300 text-slate-900" />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-500 mb-1">Interest Rate (%)</label>
+              <input type="number" id="sme-loan-rate" value="11.5" step="0.25" class="w-full text-xs font-mono p-2.5 rounded-xl bg-white border border-slate-300 text-slate-900" />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-500 mb-1">Tenure (Months)</label>
+              <input type="number" id="sme-loan-tenure" value="36" step="6" class="w-full text-xs font-mono p-2.5 rounded-xl bg-white border border-slate-300 text-slate-900" />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-500 mb-1">Monthly Op. Cash Flow (₹)</label>
+              <input type="number" id="sme-loan-op-cash" value="85000" step="5000" class="w-full text-xs font-mono p-2.5 rounded-xl bg-white border border-slate-300 text-slate-900" />
+            </div>
+          </div>
+
+          <div class="mt-4 p-4 rounded-xl bg-white border border-slate-200 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-5">
+              <div>
+                <span class="text-[10px] text-slate-400 uppercase font-bold block">Monthly EMI</span>
+                <span id="sme-loan-emi" class="text-xl font-extrabold font-mono text-slate-900">₹0</span>
+              </div>
+              <div>
+                <span class="text-[10px] text-slate-400 uppercase font-bold block">Coverage Ratio</span>
+                <span id="sme-loan-dscr" class="text-base font-extrabold font-mono text-emerald-600">0.0x</span>
+              </div>
+              <div id="sme-loan-verdict" class="px-3 py-1 rounded-full text-xs font-bold"></div>
+            </div>
+            <p id="sme-loan-guidance" class="text-xs text-slate-600 max-w-md font-medium"></p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB 8: ARTHA AI COPILOT -->
+    <!-- ========================================================= -->
+    <div id="tab-copilot" class="tab-panel hidden space-y-4">
+      
+      <div class="white-card p-7 flex flex-col h-[650px]">
+        
+        <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-black text-white flex items-center justify-center font-black text-sm">
+              <i data-lucide="sparkles" class="w-5 h-5 text-amber-400"></i>
+            </div>
+            <div>
+              <h3 class="font-extrabold text-base text-slate-900">Artha Copilot</h3>
+              <p class="text-xs text-slate-500">Autonomous Financial Advisory Engine (Context-Aware)</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+            Judge Synchronized
+          </span>
+        </div>
+
+        <!-- Chat History -->
+        <div id="copilot-messages-container" class="flex-1 overflow-y-auto pr-2 space-y-4">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- Suggested Prompt Chips for Judges -->
+        <div class="pt-3 border-t border-slate-200">
+          <p class="text-[11px] text-slate-400 mb-2 font-bold uppercase tracking-wider">Suggested Questions for This Judge:</p>
+          <div class="flex flex-wrap gap-2" id="copilot-judge-chips">
+            <!-- Dynamically populated per judge -->
+          </div>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="mt-3 flex gap-2">
+          <input type="text" id="copilot-user-input" class="flex-1 text-xs p-3.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 outline-none focus:border-black subtle-bg" placeholder="Ask any financial question... e.g. 'How should I optimize my tax regime with ₹45L CTC?'" />
+          <button id="btn-send-copilot" class="px-5 py-2.5 rounded-xl bg-black hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-2 shadow-sm transition">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Send</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= APP FOOTER ================= -->
+  <footer class="border-t border-gray-200 bg-white py-4 text-xs text-slate-500 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-slate-800">ArthaOS • Built for Arthathon 2026</p>
+        <p class="text-[11px] text-slate-500">Theme: AI for Finance • Reviewed by AI Researchers & Engineers from Google, Perplexity, Cadence, Mistral AI, Bernstein, and Elimentary</p>
+      </div>
+      <div class="flex items-center gap-3 text-slate-500">
+        <span>Author: <strong class="text-slate-800">dheekshithchalla</strong></span>
+        <span>•</span>
+        <span>Zero-CORS Standalone Engine</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="app-toast" class="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-2xl bg-black text-white shadow-2xl text-xs font-bold opacity-0 pointer-events-none transition-all duration-300"></div>
+
+  <!-- ========================================================================= -->
+  <!-- STANDALONE JS ENGINE (100% Zero-CORS • Runs on file:// Protocol) -->
+  <!-- ========================================================================= -->
+  <script>
+    (function() {
+      // 1. FORMATTERS
+      const Formatters = {
+        currency(amount, includeDecimals = false) {
+          if (isNaN(amount) || amount === null || amount === undefined) return '₹0';
+          const num = Number(amount);
+          const sign = num < 0 ? '-' : '';
+          const absNum = Math.abs(num);
+          const parts = absNum.toFixed(includeDecimals ? 2 : 0).split('.');
+          let intPart = parts[0];
+          const decPart = parts.length > 1 ? '.' + parts[1] : '';
+          if (intPart.length > 3) {
+            const lastThree = intPart.substring(intPart.length - 3);
+            const otherNumbers = intPart.substring(0, intPart.length - 3);
+            intPart = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + lastThree;
+          }
+          return `${sign}₹${intPart}${includeDecimals ? decPart : ''}`;
+        },
+        date(dateString) {
+          try {
+            const d = new Date(dateString);
+            return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+          } catch { return dateString || 'N/A'; }
+        },
+        dateTime(dateString) {
+          try {
+            const d = new Date(dateString);
+            return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true });
+          } catch { return dateString || 'N/A'; }
+        }
+      };
+
+      // 2. THE 6 JUDGES AS COMPLETE FINANCIAL USERS (Replaced Aarav, Meera, Ramesh, Ananya)
+      const Judges = {
+        pawan: {
+          id: 'pawan',
+          name: 'Pawan Nagwani',
+          title: 'Senior Engineer, Search AI',
+          company: 'Google',
+          companyBadge: 'bg-blue-50 text-blue-700 border-blue-200',
+          avatar: '👨‍💻',
+          vpa: 'pawan.nagwani@google',
+          balance: '₹3,42,800.00',
+          salary: 285000,
+          ctc: 4850000, // Tech Staff CTC with Google RSUs
+          basic: 2182500,
+          rent: 45000,
+          isMetro: true,
+          sec80c: 150000,
+          sec80d: 50000,
+          nps: 50000,
+          loan: 200000,
+          scamText: "Collect Request of ₹24,999.00 from VPA: google-it-refund@ybl. Remark: 'Google Corporate IT Refund. Enter 6-digit UPI PIN to claim credit.'",
+          scamVpa: "google-it-refund@ybl",
+          copilotGreeting: "Hello **Pawan**! As a Senior Engineer in Search AI at Google, you understand the power of neural models. How should we optimize your ₹48.5L CTC across Old vs New Tax regimes and Google RSU vesting schedules today?",
+          chips: [
+            "With my ₹48.5L CTC at Google, does Old or New Tax Regime save more?",
+            "How do I spot spoofed Google employee refund collect scams?",
+            "What is the optimal Nifty 50 vs US Tech allocation for my portfolio?"
+          ]
+        },
+        kumar: {
+          id: 'kumar',
+          name: 'Kumar Pallav',
+          title: 'Member of Technical Staff',
+          company: 'Perplexity',
+          companyBadge: 'bg-teal-50 text-teal-700 border-teal-200',
+          avatar: '⚡',
+          vpa: 'kumar.pallav@perplexity',
+          balance: '₹2,65,400.00',
+          salary: 245000,
+          ctc: 4200000,
+          basic: 1890000,
+          rent: 38000,
+          isMetro: true,
+          sec80c: 150000,
+          sec80d: 25000,
+          nps: 50000,
+          loan: 0,
+          scamText: "Urgent Notice: Dear Perplexity Developer, your AWS GPU credits overdue penalty of Rs 18,500 must be cleared immediately via PhonePe at http://bit.ly/fast-pay-apk.",
+          scamVpa: "gpu-billing@okaxis",
+          copilotGreeting: "Welcome **Kumar**! Frontier AI research at Perplexity moves fast. Let's analyze your ₹42L CTC, evaluate high-growth tech index compounding, and bulletproof your digital payment endpoints.",
+          chips: [
+            "How should an early engineer at Perplexity structure monthly SIPs?",
+            "Evaluate whether my high metro rent justifies the Old Tax Regime.",
+            "Can I claim OpenAI and GPU server subscriptions as business tax deductions?"
+          ]
+        },
+        richa: {
+          id: 'richa',
+          name: 'Richa Agrawal',
+          title: 'Senior Principal Engineer',
+          company: 'Cadence',
+          companyBadge: 'bg-purple-50 text-purple-700 border-purple-200',
+          avatar: '👩‍💼',
+          vpa: 'richa.agrawal@cadence',
+          balance: '₹5,18,000.00',
+          salary: 310000,
+          ctc: 5400000,
+          basic: 2430000,
+          rent: 50000,
+          isMetro: true,
+          sec80c: 150000,
+          sec80d: 75000, // Self + senior parents
+          nps: 50000,
+          loan: 200000,
+          scamText: "Dear Consumer, your electricity power connection will be disconnected tonight at 9:30 PM due to unpaid balance. Call our nodal officer at 9382109921 immediately.",
+          scamVpa: "elec-audit@paytm",
+          copilotGreeting: "Hello **Richa**! As Senior Principal Engineer at Cadence, your financial portfolio benefits from maximizing Section 80C, Section 80D for senior parents, and Home Loan interest. Let's inspect your tax crossover breakeven point.",
+          chips: [
+            "With maximum 80C + 80D for parents + home loan, does Old Regime win for me?",
+            "What is my exact deduction crossover threshold under Budget 2025-26?",
+            "How does ArthaOS detect reverse-QR phishing messages?"
+          ]
+        },
+        pravesh: {
+          id: 'pravesh',
+          name: 'Pravesh Agrawal',
+          title: 'Research Scientist',
+          company: 'Mistral AI',
+          companyBadge: 'bg-orange-50 text-orange-700 border-orange-200',
+          avatar: '🔬',
+          vpa: 'pravesh.agrawal@mistral',
+          balance: '₹4,85,900.00',
+          salary: 290000,
+          ctc: 5100000,
+          basic: 2295000,
+          rent: 40000,
+          isMetro: true,
+          sec80c: 150000,
+          sec80d: 35000,
+          nps: 50000,
+          loan: 0,
+          scamText: "Mistral AI Research Grant: You won EUR 15,000 cash grant. Scan QR code and enter 6-digit UPI PIN to accept credit in Indian Bank account.",
+          scamVpa: "mistral-grant@ybl",
+          copilotGreeting: "Welcome **Pravesh**! Conducting foundational AI research at Mistral demands razor-sharp precision. Let's analyze your asset allocation across Indian indices, global tech, and Sovereign Gold hedges.",
+          chips: [
+            "How should I protect my wealth against currency depreciation with Gold SGBs?",
+            "Analyze my Swiggy and tech subscription burn velocity.",
+            "Can a scammer extract money if I only share my UPI VPA ID?"
+          ]
+        },
+        viola: {
+          id: 'viola',
+          name: 'Viola Chen',
+          title: 'Senior Research Associate',
+          company: 'Bernstein',
+          companyBadge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+          avatar: '📊',
+          vpa: 'viola.chen@bernstein',
+          balance: '₹6,40,000.00',
+          salary: 325000,
+          ctc: 5800000,
+          basic: 2610000,
+          rent: 55000,
+          isMetro: true,
+          sec80c: 150000,
+          sec80d: 25000,
+          nps: 50000,
+          loan: 150000,
+          scamText: "Bernstein Institutional Alert: Urgent securities margin shortfall of Rs 45,000. Settle instantly via collect request to avoid account suspension.",
+          scamVpa: "bernstein-settle@okhdfcbank",
+          copilotGreeting: "Hello **Viola**! As Senior Research Associate at Bernstein, institutional equity research is your domain. Let's inspect our NSE backtesting engine, Sharpe ratios, and macro news correlation models.",
+          chips: [
+            "Review the Sharpe ratio and max drawdown of the 50-DMA dip accumulator.",
+            "Compare Nifty 50 10-year rolling CAGR vs Bank Nifty.",
+            "What is the mathematical rationale of Budget 2025-26 ₹75k standard deduction?"
+          ]
+        },
+        manoj: {
+          id: 'manoj',
+          name: 'Manoj Sarda',
+          title: 'Co-founder',
+          company: 'Elimentary',
+          companyBadge: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+          avatar: '🚀',
+          vpa: 'manoj.sarda@elimentary',
+          balance: '₹8,92,000.00',
+          salary: 195000,
+          ctc: 3200000,
+          basic: 1600000,
+          rent: 35000,
+          isMetro: true,
+          sec80c: 120000,
+          sec80d: 25000,
+          nps: 0,
+          loan: 180000,
+          scamText: "Urgent MCA Compliance: Your company Elimentary has an overdue annual filing penalty of Rs 12,000. Pay immediately at https://mca-portal-penalty.live to avoid director disqualification.",
+          scamVpa: "mca-officer@paytm",
+          copilotGreeting: "Welcome **Manoj**! Building Elimentary as co-founder requires meticulous working capital stewardship. Let's forecast your 90-day cash buffer, reconcile GST Input Tax Credit (ITC), and stress-test venture debt.",
+          chips: [
+            "How do I maintain a safe 90-day cash flow runway for my company?",
+            "Reconcile 18% GST invoice with Input Tax Credit (ITC) for clients.",
+            "What Debt Service Coverage Ratio (DSCR) is safe before taking expansion loans?"
+          ]
+        }
+      };
+
+      // 3. MOCK DATA
+      const MockTransactions = [
+        { id: 'tx-101', date: '2026-11-14T20:15:00', type: 'debit', amount: 489, merchant: 'Swiggy', category: 'Food & Dining', upiId: 'swiggy@icici', account: 'HDFC **4012', brandColor: '#FC8019', brandIcon: 'utensils' },
+        { id: 'tx-102', date: '2026-11-14T14:30:00', type: 'debit', amount: 320, merchant: 'Uber India', category: 'Travel & Commute', upiId: 'uber.india@axis', account: 'HDFC **4012', brandColor: '#000000', brandIcon: 'car' },
+        { id: 'tx-103', date: '2026-11-13T19:45:00', type: 'debit', amount: 1250, merchant: 'Blinkit', category: 'Groceries', upiId: 'blinkit@kotak', account: 'HDFC **4012', brandColor: '#F7D100', brandIcon: 'shopping-bag' },
+        { id: 'tx-104', date: '2026-11-12T09:00:00', type: 'debit', amount: 35000, merchant: 'Zerodha Broking Ltd', category: 'Investments', upiId: 'zerodha@hdfcbank', account: 'HDFC **4012', brandColor: '#387ED1', brandIcon: 'trending-up' },
+        { id: 'tx-105', date: '2026-11-10T11:20:00', type: 'debit', amount: 649, merchant: 'Netflix', category: 'Subscriptions', upiId: 'netflix@citibank', account: 'HDFC **4012', brandColor: '#E50914', brandIcon: 'film' },
+        { id: 'tx-106', date: '2026-11-08T18:10:00', type: 'debit', amount: 1999, merchant: 'Cult.fit Healthcare', category: 'Health & Fitness', upiId: 'cultfit@yesbank', account: 'HDFC **4012', brandColor: '#FF3278', brandIcon: 'activity' },
+        { id: 'tx-107', date: '2026-11-05T12:00:00', type: 'debit', amount: 45000, merchant: 'Suresh Kumar (Landlord)', category: 'Rent & Housing', upiId: 'sureshkumar@okhdfcbank', account: 'HDFC **4012', brandColor: '#10B981', brandIcon: 'home' },
+        { id: 'tx-108', date: '2026-11-04T16:40:00', type: 'debit', amount: 2450, merchant: 'BESCOM Electricity', category: 'Bills & Utilities', upiId: 'bescom@sbi', account: 'HDFC **4012', brandColor: '#F59E0B', brandIcon: 'zap' },
+        { id: 'tx-109', date: '2026-11-03T10:15:00', type: 'debit', amount: 119, merchant: 'Spotify India', category: 'Subscriptions', upiId: 'spotify@rbl', account: 'HDFC **4012', brandColor: '#1DB954', brandIcon: 'music' },
+        { id: 'tx-110', date: '2026-11-01T08:00:00', type: 'credit', amount: 285000, merchant: 'Corporate Payroll Credit', category: 'Salary / Income', upiId: 'salary@icici', account: 'HDFC **4012', brandColor: '#00D084', brandIcon: 'dollar-sign' }
+      ];
+
+      const SubscriptionsLeakCatalog = [
+        { name: 'Netflix 4K Ultra', monthlyCost: 649, annualDrain: 7788, usageStatus: 'Low (Watched 2 hrs last month)', recommendation: 'Downgrade to Standard or cancel (Save ₹3,600/yr)' },
+        { name: 'Cult.fit Elite Pass', monthlyCost: 1999, annualDrain: 23988, usageStatus: 'Dormant (0 check-ins in 40 days)', recommendation: 'Pause membership immediately (Save ₹11,994)' },
+        { name: 'Spotify Duo', monthlyCost: 149, annualDrain: 1788, usageStatus: 'Moderate', recommendation: 'Switch to Annual Billing' },
+        { name: 'Google One 2TB', monthlyCost: 650, annualDrain: 7800, usageStatus: 'Essential (Cloud backup active)', recommendation: 'Retain for AI storage' }
+      ];
+
+      const SampleBankSMSList = [
+        { label: "HDFC Bank - Swiggy Debit", text: "Sent Rs. 489.00 from HDFC Bank A/C *4012 to SWIGGY UPI ref 43198001 on 14-11-26. Avail Bal: Rs 42,100.50." },
+        { label: "SBI - Salary Credit", text: "Your A/C XXXX1099 has been credited with INR 2,85,000.00 on 01-Nov-26 by NEFT-CORPORATE SALARY." },
+        { label: "ICICI - Zerodha SIP", text: "Dear Customer, Acct XX552 debited for INR 35,000.00 on 12-Nov-26 towards UPI/ZERODHA BROKING." },
+        { label: "Axis Bank - Utility Bill", text: "Paid Rs 2,450.00 to BESCOM ELECTRICITY via Axis UPI ref 662019 on 04-Nov-2026." }
+      ];
+
+      const SampleScamTestCases = [
+        { label: "🚨 Reverse QR / Enter PIN Scam", text: "Dear Seller, I have sent Rs 25,000 for your listing. Scan this QR code or accept PhonePe request and ENTER YOUR 6-DIGIT UPI PIN to receive money in your bank.", vpa: "olx-buyer99@ybl" },
+        { label: "⚠️ Fake Electricity Disconnect Threat", text: "Urgent Notice: Dear Consumer, your electricity power supply will be disconnected tonight at 9:30 PM because your bill was not updated. Call officer at 9382109921 immediately.", vpa: "elec-officer@paytm" },
+        { label: "🚨 Spoofed IT-Refund Collect", text: "Collect Request of ₹14,999.00 from VPA: it-refund-nodal@ybl. Remark: 'Income Tax Auto Refund. Enter PIN to verify claim.'", vpa: "it-refund-nodal@ybl" },
+        { label: "⚠️ Pre-Approved Instant Loan APK", text: "Congratulations! Approved for instant loan of Rs 5,00,000 at 0% interest with no CIBIL. Download RBI partner APK http://bit.ly/fast-cash-apk9 within 30 mins.", vpa: "loan-fast@upi" }
+      ];
+
+      // 4. COMPUTATION ENGINE
+      const Engine = {
+        parseSMS(text) {
+          const clean = text.trim();
+          let type = /credit|credited|received|deposited|refund/i.test(clean) && !/debit.*credit/i.test(clean) ? 'credit' : 'debit';
+          let amount = 0;
+          const amtMatch = clean.match(/(?:Rs\.?|INR|₹)\s*([\d,]+(?:\.\d{1,2})?)/i);
+          if (amtMatch) amount = parseFloat(amtMatch[1].replace(/,/g, ''));
+          
+          let merchant = 'Direct Merchant';
+          if (/swiggy/i.test(clean)) merchant = 'Swiggy';
+          else if (/zomato/i.test(clean)) merchant = 'Zomato';
+          else if (/uber/i.test(clean)) merchant = 'Uber India';
+          else if (/blinkit/i.test(clean)) merchant = 'Blinkit';
+          else if (/zerodha/i.test(clean)) merchant = 'Zerodha Broking';
+          else if (/bescom|electricity/i.test(clean)) merchant = 'BESCOM Electricity';
+          else if (type === 'credit') merchant = 'Corporate Payroll Credit';
+
+          let category = 'General Expense';
+          if (/swiggy|zomato/i.test(merchant)) category = 'Food & Dining';
+          else if (/uber/i.test(merchant)) category = 'Travel & Commute';
+          else if (/blinkit/i.test(merchant)) category = 'Groceries';
+          else if (/zerodha/i.test(merchant)) category = 'Investments';
+          else if (/bescom/i.test(merchant)) category = 'Bills & Utilities';
+          else if (type === 'credit') category = 'Salary / Income';
+
+          let refId = 'UPI-' + Math.floor(10000000 + Math.random() * 90000000);
+          const refM = clean.match(/(?:UPI\s*ref(?:erence)?|Ref\s*No\.?|RRN)\s*[:]?\s*([A-Za-z0-9]+)/i);
+          if (refM) refId = refM[1];
+
+          return {
+            id: 'tx-' + Date.now(),
+            date: new Date().toISOString(),
+            type, amount, merchant, category,
+            account: 'HDFC **4012', refId,
+            brandColor: type === 'credit' ? '#00D084' : '#F59E0B'
+          };
+        },
+
+        analyzeScam(text, vpa = '') {
+          const combined = (text + ' ' + vpa).toLowerCase();
+          const vectors = [];
+          let score = 0;
+
+          if (/(?:enter|type|scan).*upi\s*pin.*(?:receive|claim|accept|credit|get\s*money)/i.test(combined) ||
+              /(?:receive|claim|accept).*enter.*pin/i.test(combined) ||
+              /scan.*qr.*to\s*receive/i.test(combined)) {
+            score += 45;
+            vectors.push({ name: 'Reverse QR / PIN to Receive Fraud', desc: 'CRITICAL: You NEVER enter your UPI PIN to receive money. Entering PIN always debits your account!' });
+          }
+
+          if (/sbi-refund|paytm-kyc|it-refund|nodal-officer|gst-audit|google-it-refund/i.test(combined)) {
+            score += 35;
+            vectors.push({ name: 'VPA Impersonation / Fake Authority Handle', desc: 'Scammer is spoofing official corporate or bank keywords in an unauthorized handle.' });
+          }
+
+          if (/disconnected\s*tonight|within\s*\d+\s*(?:hours|mins)|account\s*block|digital\s*arrest|shortfall/i.test(combined)) {
+            score += 30;
+            vectors.push({ name: 'Psychological Urgency & Fear Vector', desc: 'Creates panic (power cut tonight / arrest / suspension) to bypass analytical decision-making.' });
+          }
+
+          if (/bit\.ly|tinyurl|\.apk|\.live|\.xyz/i.test(combined)) {
+            score += 35;
+            vectors.push({ name: 'Suspicious Domain / Malicious Trojan APK', desc: 'Attempts to deploy unauthorized remote monitoring tools on your mobile device.' });
+          }
+
+          score = Math.min(99, score);
+          let risk = 'SAFE';
+          let badge = 'text-emerald-700 bg-emerald-100 border-emerald-300';
+          let summary = 'This notification appears consistent with verified digital banking protocols.';
+          
+          if (score >= 70) {
+            risk = 'CRITICAL FRAUD TRAP';
+            badge = 'text-rose-700 bg-rose-100 border-rose-300 animate-pulse';
+            summary = 'EXTREME DANGER: This is a verified cyber-fraud trap designed to drain your bank balance!';
+          } else if (score >= 35) {
+            risk = 'HIGH SUSPICION';
+            badge = 'text-amber-700 bg-amber-100 border-amber-300';
+            summary = 'WARNING: Contains deceptive elements and unverified payment channels.';
+          }
+
+          return { score, risk, badge, summary, vectors };
+        },
+
+        calculateTax(gross, basic, rentMonthly, isMetro, s80c, s80d, snps, sloan) {
+          // New Regime (Budget 25-26: Standard deduction ₹75,000, Nil up to 3L, 3-7L 5%, 7-10L 10%, 10-12L 15%, 12-15L 20%, >15L 30%)
+          const newTaxable = Math.max(0, gross - 75000);
+          let newTax = 0;
+          if (newTaxable <= 300000) newTax = 0;
+          else if (newTaxable <= 700000) newTax = (newTaxable - 300000) * 0.05;
+          else if (newTaxable <= 1000000) newTax = 20000 + (newTaxable - 700000) * 0.10;
+          else if (newTaxable <= 1200000) newTax = 20000 + 30000 + (newTaxable - 1000000) * 0.15;
+          else if (newTaxable <= 1500000) newTax = 20000 + 30000 + 30000 + (newTaxable - 1200000) * 0.20;
+          else newTax = 20000 + 30000 + 30000 + 60000 + (newTaxable - 1500000) * 0.30;
+          
+          if (newTaxable <= 700000) newTax = 0; // 87A rebate
+          const newTotal = Math.round(newTax * 1.04);
+
+          // Old Regime: HRA exemption
+          const annualRent = rentMonthly * 12;
+          const hraExemption = Math.max(0, Math.min(basic * (isMetro ? 0.5 : 0.4), Math.max(0, annualRent - basic * 0.10)));
+          const oldDeductions = 50000 + Math.min(150000, s80c) + Math.min(100000, s80d) + Math.min(50000, snps) + Math.min(200000, sloan) + hraExemption;
+          const oldTaxable = Math.max(0, gross - oldDeductions);
+          
+          let oldTax = 0;
+          if (oldTaxable <= 250000) oldTax = 0;
+          else if (oldTaxable <= 500000) oldTax = (oldTaxable - 250000) * 0.05;
+          else if (oldTaxable <= 1000000) oldTax = 12500 + (oldTaxable - 500000) * 0.20;
+          else oldTax = 12500 + 100000 + (oldTaxable - 1000000) * 0.30;
+          
+          if (oldTaxable <= 500000) oldTax = 0;
+          const oldTotal = Math.round(oldTax * 1.04);
+
+          const savings = Math.abs(oldTotal - newTotal);
+          const winner = newTotal <= oldTotal ? 'NEW' : 'OLD';
+          
+          return {
+            newTaxable, newTotal,
+            oldDeductions: Math.round(oldDeductions), oldTaxable, oldTotal,
+            winner, savings
+          };
+        },
+
+        simulateWealth(sip, rate, years, inflation) {
+          const months = years * 12;
+          const mRate = (rate / 100) / 12;
+          const mFdRate = (6.5 / 100) / 12;
+          let eqVal = 0, fdVal = 0, invested = 0;
+          const points = [];
+
+          for (let m = 1; m <= months; m++) {
+            invested += sip;
+            eqVal = (eqVal + sip) * (1 + mRate);
+            fdVal = (fdVal + sip) * (1 + mFdRate);
+            if (m % 12 === 0) {
+              const y = m / 12;
+              const realEq = eqVal / Math.pow(1 + (inflation / 100), y);
+              points.push({ year: y, invested, eqNominal: Math.round(eqVal), fdNominal: Math.round(fdVal), eqReal: Math.round(realEq) });
+            }
+          }
+          return { totalInvested: invested, finalEquity: Math.round(eqVal), finalFd: Math.round(fdVal), points };
+        }
+      };
+
+      // 5. APPLICATION CONTROLLER
+      class ArthaApp {
+        constructor() {
+          this.transactions = [...MockTransactions];
+          this.subscriptions = [...SubscriptionsLeakCatalog];
+          this.currentJudge = 'pawan';
+          this.charts = {};
+        }
+
+        init() {
+          this.setupTabs();
+          this.setupJudges();
+          this.setupSMS();
+          this.setupScam();
+          this.setupTax();
+          this.setupPortfolio();
+          this.setupMarket();
+          this.setupSME();
+          this.setupCopilot();
+          this.setupThemeToggle();
+          this.setupExport();
+
+          this.applyJudge('pawan');
+          this.renderAll();
+
+          if (window.lucide) window.lucide.createIcons();
+        }
+
+        setupTabs() {
+          document.querySelectorAll('.tab-pill-btn').forEach(tab => {
+            tab.addEventListener('click', () => {
+              const target = tab.getAttribute('data-nav-target');
+              document.querySelectorAll('.tab-pill-btn').forEach(t => t.classList.remove('active'));
+              tab.classList.add('active');
+
+              document.querySelectorAll('.tab-panel').forEach(p => {
+                if (p.id === `tab-${target}`) p.classList.remove('hidden');
+                else p.classList.add('hidden');
+              });
+
+              if (target === 'dashboard') this.renderDashboard();
+              if (target === 'tax-engine') this.renderTax();
+              if (target === 'portfolio') this.renderPortfolio();
+              if (window.lucide) window.lucide.createIcons();
+            });
+          });
+        }
+
+        setupJudges() {
+          const select = document.getElementById('judge-persona-select');
+          if (select) {
+            select.addEventListener('change', (e) => this.applyJudge(e.target.value));
+          }
+        }
+
+        applyJudge(jid) {
+          this.currentJudge = jid;
+          const j = Judges[jid];
+          if (!j) return;
+
+          // Status bar
+          document.getElementById('judge-status-bar').innerHTML = `
+            <div class="flex items-center gap-2">
+              <span class="text-base">${j.avatar}</span>
+              <span class="font-extrabold text-slate-900">${j.name}</span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full border ${j.companyBadge}">${j.company}</span>
+              <span class="text-xs text-slate-500">(${j.title})</span>
+            </div>
+          `;
+
+          // Stellar Hero Card
+          document.getElementById('card-hero-vpa').textContent = j.vpa;
+          document.getElementById('card-hero-balance').textContent = j.balance;
+
+          // Tax inputs sync
+          document.getElementById('tax-input-gross').value = j.ctc;
+          document.getElementById('tax-input-basic').value = j.basic;
+          document.getElementById('tax-input-rent').value = j.rent;
+          document.getElementById('tax-input-metro').checked = j.isMetro;
+          document.getElementById('tax-input-80c').value = j.sec80c;
+          document.getElementById('tax-input-80d').value = j.sec80d;
+          document.getElementById('tax-input-nps').value = j.nps;
+          document.getElementById('tax-input-loan').value = j.loan;
+
+          // Scam inputs sync
+          document.getElementById('scam-input-text').value = j.scamText;
+          document.getElementById('scam-input-vpa').value = j.scamVpa;
+
+          // Copilot suggested chips sync
+          const chipsBox = document.getElementById('copilot-judge-chips');
+          if (chipsBox) {
+            chipsBox.innerHTML = j.chips.map(chip => `
+              <button data-copilot-prompt="${chip.replace(/"/g, '&quot;')}" class="text-xs px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 transition font-semibold" onclick="document.getElementById('copilot-user-input').value = this.innerText; document.getElementById('btn-send-copilot').click();">
+                ${chip}
+              </button>
+            `).join('');
+          }
+
+          // Reset Copilot greeting for this judge
+          const copilotBox = document.getElementById('copilot-messages-container');
+          if (copilotBox) {
+            copilotBox.innerHTML = '';
+            this.appendCopilot('assistant', j.copilotGreeting);
+          }
+
+          this.renderAll();
+          this.showToast(`Active Judge: ${j.name} (${j.company})`);
+        }
+
+        renderAll() {
+          this.renderDashboard();
+          this.renderBudgeting();
+          this.renderScam();
+          this.renderTax();
+          this.renderPortfolio();
+          this.renderMarket();
+          this.renderSME();
+        }
+
+        renderDashboard() {
+          let debit = 0, credit = 0;
+          const catMap = {};
+
+          this.transactions.forEach(t => {
+            if (t.type === 'debit') {
+              debit += t.amount;
+              catMap[t.category] = (catMap[t.category] || 0) + t.amount;
+            } else {
+              credit += t.amount;
+            }
+          });
+
+          document.getElementById('dash-metric-income').textContent = Formatters.currency(credit);
+          document.getElementById('dash-metric-spend').textContent = Formatters.currency(debit);
+          const rate = credit > 0 ? (((credit - debit) / credit) * 100).toFixed(1) : 0;
+          document.getElementById('dash-metric-savings-rate').textContent = `${rate}%`;
+
+          // Category Donut Chart
+          const labels = Object.keys(catMap);
+          const data = Object.values(catMap);
+          const canvas = document.getElementById('dash-category-chart');
+
+          if (canvas && window.Chart) {
+            if (this.charts.category) this.charts.category.destroy();
+            this.charts.category = new Chart(canvas, {
+              type: 'doughnut',
+              data: {
+                labels,
+                datasets: [{
+                  data,
+                  backgroundColor: ['#00D084', '#111827', '#4F46E5', '#F59E0B', '#E11D48', '#06B6D4', '#8B5CF6'],
+                  borderWidth: 3,
+                  borderColor: document.body.classList.contains('dark-mode') ? '#121318' : '#FFFFFF'
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                cutout: '72%'
+              }
+            });
+          }
+
+          // Category Bars
+          const barsContainer = document.getElementById('dash-category-bars');
+          if (barsContainer) {
+            barsContainer.innerHTML = labels.slice(0, 5).map((l, i) => {
+              const val = catMap[l];
+              const pct = debit > 0 ? ((val / debit) * 100).toFixed(0) : 0;
+              const barColors = ['bg-emerald-500', 'bg-slate-900', 'bg-indigo-600', 'bg-amber-500', 'bg-rose-500'];
+              return `
+                <div class="space-y-1">
+                  <div class="flex justify-between text-xs font-semibold">
+                    <span class="text-slate-800">${l}</span>
+                    <span class="font-mono text-slate-500">${Formatters.currency(val)} (${pct}%)</span>
+                  </div>
+                  <div class="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="h-full rounded-full ${barColors[i % barColors.length]}" style="width: ${pct}%"></div>
+                  </div>
+                </div>
+              `;
+            }).join('');
+          }
+
+          // Recent Transactions List
+          const txList = document.getElementById('dash-recent-tx-list');
+          if (txList) {
+            txList.innerHTML = this.transactions.slice(0, 5).map(tx => `
+              <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100 transition border border-slate-200/60 subtle-bg">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white shadow-sm" style="background-color: ${tx.brandColor || '#111827'}">
+                    ${tx.merchant.charAt(0)}
+                  </div>
+                  <div>
+                    <h5 class="font-extrabold text-sm text-slate-900">${tx.merchant}</h5>
+                    <p class="text-xs text-slate-500">${tx.category} • ${Formatters.date(tx.date)}</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span class="font-mono font-extrabold text-sm ${tx.type === 'debit' ? 'text-slate-900' : 'text-emerald-600'}">
+                    ${tx.type === 'debit' ? '-' : '+'}${Formatters.currency(tx.amount)}
+                  </span>
+                  <span class="text-[10px] text-slate-400 block">${tx.account}</span>
+                </div>
+              </div>
+            `).join('');
+          }
+
+          // Subscriptions Leaks
+          const subList = document.getElementById('dash-sub-leaks-list');
+          if (subList) {
+            subList.innerHTML = this.subscriptions.map(s => `
+              <div class="p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80 hover:border-amber-300 transition">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-slate-900">${s.name}</span>
+                  <span class="font-mono font-extrabold text-amber-800 text-xs">${Formatters.currency(s.monthlyCost)}/mo</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1 font-medium">${s.usageStatus}</p>
+                <p class="text-xs text-emerald-700 font-extrabold mt-1">💡 ${s.recommendation}</p>
+              </div>
+            `).join('');
+          }
+        }
+
+        setupSMS() {
+          const btn = document.getElementById('btn-parse-sms');
+          if (btn) {
+            btn.addEventListener('click', () => {
+              const text = document.getElementById('sms-input-text')?.value;
+              if (!text) return this.showToast('Please paste a bank or UPI SMS alert');
+              const tx = Engine.parseSMS(text);
+              this.transactions.unshift(tx);
+              this.renderAll();
+              this.showToast(`Parsed: ${tx.merchant} (${Formatters.currency(tx.amount)})`);
+              if (window.confetti) window.confetti({ particleCount: 35, spread: 60 });
+            });
+          }
+
+          const samplesBox = document.getElementById('sms-samples-list');
+          if (samplesBox) {
+            samplesBox.innerHTML = SampleBankSMSList.map((s, idx) => `
+              <button class="w-full text-left p-2 rounded-xl bg-white border border-slate-200 hover:border-black text-xs text-slate-700 transition" onclick="document.getElementById('sms-input-text').value = '${s.text.replace(/'/g, "\\'")}'">
+                <span class="font-bold text-slate-900 block">${s.label}</span>
+                <span class="text-[11px] text-slate-500 truncate block">${s.text}</span>
+              </button>
+            `).join('');
+          }
+        }
+
+        renderBudgeting() {
+          const tbody = document.getElementById('budget-tx-table-body');
+          if (tbody) {
+            tbody.innerHTML = this.transactions.map(tx => `
+              <tr class="border-b border-slate-100 hover:bg-slate-50 text-xs">
+                <td class="p-3.5 text-slate-500">${Formatters.dateTime(tx.date)}</td>
+                <td class="p-3.5 font-bold text-slate-900 flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${tx.brandColor || '#111827'}"></span>
+                  <span>${tx.merchant}</span>
+                </td>
+                <td class="p-3.5"><span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold">${tx.category}</span></td>
+                <td class="p-3.5 font-mono text-slate-500 text-[11px]">${tx.refId}</td>
+                <td class="p-3.5 text-right font-mono font-bold ${tx.type === 'debit' ? 'text-slate-900' : 'text-emerald-600'}">
+                  ${tx.type === 'debit' ? '-' : '+'}${Formatters.currency(tx.amount)}
+                </td>
+              </tr>
+            `).join('');
+          }
+          const countEl = document.getElementById('budget-ledger-count');
+          if (countEl) countEl.textContent = this.transactions.length;
+        }
+
+        setupScam() {
+          const btn = document.getElementById('btn-scan-scam');
+          if (btn) {
+            btn.addEventListener('click', () => {
+              const text = document.getElementById('scam-input-text')?.value;
+              const vpa = document.getElementById('scam-input-vpa')?.value;
+              if (!text) return this.showToast('Please enter a message to scan');
+              this.runScamScan(text, vpa);
+            });
+          }
+
+          const scamBox = document.getElementById('scam-samples-grid');
+          if (scamBox) {
+            scamBox.innerHTML = SampleScamTestCases.map((s, idx) => `
+              <button class="w-full text-left p-2.5 rounded-xl bg-white border border-slate-200 hover:border-rose-400 text-xs transition" onclick="document.getElementById('scam-input-text').value = '${s.text.replace(/'/g, "\\'")}'; document.getElementById('scam-input-vpa').value = '${s.vpa}'; document.getElementById('btn-scan-scam').click();">
+                <span class="font-bold text-slate-900 block mb-0.5">${s.label}</span>
+                <span class="text-[11px] text-slate-500 line-clamp-1 block">${s.text}</span>
+              </button>
+            `).join('');
+          }
+        }
+
+        runScamScan(text, vpa) {
+          const res = Engine.analyzeScam(text, vpa);
+          const box = document.getElementById('scam-result-box');
+          box.classList.remove('hidden');
+
+          const badge = document.getElementById('scam-score-badge');
+          badge.className = `px-3.5 py-1.5 rounded-full text-xs font-extrabold ${res.badge}`;
+          badge.textContent = `Threat Score: ${res.score}/100 • ${res.risk}`;
+
+          document.getElementById('scam-summary-text').textContent = res.summary;
+
+          const vList = document.getElementById('scam-vectors-list');
+          if (res.vectors.length === 0) {
+            vList.innerHTML = `<li class="text-xs text-slate-500 italic">No malicious deception heuristics detected.</li>`;
+          } else {
+            vList.innerHTML = res.vectors.map(v => `
+              <li class="p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs">
+                <strong class="text-rose-800 block mb-0.5">⚠️ ${v.name}</strong>
+                <span class="text-slate-700">${v.desc}</span>
+              </li>
+            `).join('');
+          }
+
+          const rList = document.getElementById('scam-recommendations-list');
+          rList.innerHTML = (res.score >= 70 ? [
+            'DO NOT enter your 4 or 6-digit UPI PIN under any circumstance.',
+            'DO NOT download any APK or remote access tool (AnyDesk/QuickSupport).',
+            'Block and report sender on Government Chakshu portal (sancharsaathi.gov.in).',
+            'Dial National Cyber Crime Helpline 1930 immediately if money was deducted.'
+          ] : [
+            'Verify transactions directly through your official banking application.',
+            'Never share OTP or PIN with anyone over phone or SMS.'
+          ]).map(r => `<li class="text-xs text-slate-700 flex items-start gap-1.5"><span class="text-emerald-600 font-bold">✓</span><span>${r}</span></li>`).join('');
+
+          const draft = `COMPLAINT REGARDING ONLINE FINANCIAL FRAUD ATTEMPT\nDate: ${new Date().toLocaleDateString('en-IN')}\nComplainant: ${Judges[this.currentJudge].name} (${Judges[this.currentJudge].company})\nSuspected VPA: ${vpa || 'N/A'}\nMessage Evidence: "${text}"\n\nSubmitted via ArthaOS Cyber Shield for National Cyber Crime Portal (cybercrime.gov.in / Dial 1930).`;
+          document.getElementById('scam-complaint-draft').value = draft;
+
+          document.getElementById('btn-copy-complaint').onclick = () => {
+            navigator.clipboard.writeText(draft);
+            this.showToast('Copied Cyber Crime Complaint Draft to clipboard!');
+          };
+
+          this.showToast(`Scam Scan Complete: ${res.risk}`);
+        }
+
+        renderScam() {
+          const text = document.getElementById('scam-input-text')?.value;
+          if (text) this.runScamScan(text, document.getElementById('scam-input-vpa')?.value);
+        }
+
+        setupTax() {
+          ['tax-input-gross', 'tax-input-basic', 'tax-input-rent', 'tax-input-80c', 'tax-input-80d', 'tax-input-nps', 'tax-input-loan'].forEach(id => {
+            document.getElementById(id)?.addEventListener('input', () => this.renderTax());
+          });
+          document.getElementById('tax-input-metro')?.addEventListener('change', () => this.renderTax());
+        }
+
+        renderTax() {
+          const gross = parseFloat(document.getElementById('tax-input-gross')?.value || 0);
+          const basic = parseFloat(document.getElementById('tax-input-basic')?.value || 0);
+          const rent = parseFloat(document.getElementById('tax-input-rent')?.value || 0);
+          const isMetro = document.getElementById('tax-input-metro')?.checked ?? true;
+          const s80c = parseFloat(document.getElementById('tax-input-80c')?.value || 0);
+          const s80d = parseFloat(document.getElementById('tax-input-80d')?.value || 0);
+          const snps = parseFloat(document.getElementById('tax-input-nps')?.value || 0);
+          const sloan = parseFloat(document.getElementById('tax-input-loan')?.value || 0);
+
+          const res = Engine.calculateTax(gross, basic, rent, isMetro, s80c, s80d, snps, sloan);
+
+          document.getElementById('tax-result-old-tax').textContent = Formatters.currency(res.oldTotal);
+          document.getElementById('tax-result-old-rate').textContent = `Effective Rate: ${(gross > 0 ? (res.oldTotal / gross * 100).toFixed(1) : 0)}%`;
+          document.getElementById('tax-result-old-deductions').textContent = Formatters.currency(res.oldDeductions);
+
+          document.getElementById('tax-result-new-tax').textContent = Formatters.currency(res.newTotal);
+          document.getElementById('tax-result-new-rate').textContent = `Effective Rate: ${(gross > 0 ? (res.newTotal / gross * 100).toFixed(1) : 0)}%`;
+
+          const title = document.getElementById('tax-verdict-title');
+          const desc = document.getElementById('tax-verdict-text');
+          const crossover = document.getElementById('tax-crossover-text');
+
+          if (res.winner === 'NEW') {
+            title.textContent = `🏆 WINNER: New Tax Regime (Saves ${Formatters.currency(res.savings)})`;
+            desc.textContent = `Under Budget 2025-26, the New Regime provides a revised ₹75,000 standard deduction and wider slabs. Switching saves you money with zero paperwork or forced investments.`;
+            crossover.textContent = `Breakeven Point: You need total itemized deductions exceeding ₹3,85,000 in Old Regime to beat New Regime.`;
+          } else {
+            title.textContent = `🏆 WINNER: Old Tax Regime (Saves ${Formatters.currency(res.savings)})`;
+            desc.textContent = `Your combined deductions (HRA metro rent, Section 80C, 80D for parents, and Home Loan interest) outweigh the New Regime standard rebate.`;
+            crossover.textContent = `You are currently above the breakeven threshold. Retain your rent receipts and investment proofs!`;
+          }
+
+          // Chart
+          const canvas = document.getElementById('tax-comparison-chart');
+          if (canvas && window.Chart) {
+            if (this.charts.tax) this.charts.tax.destroy();
+            this.charts.tax = new Chart(canvas, {
+              type: 'bar',
+              data: {
+                labels: ['Total Deductions', 'Taxable Net Income', 'Final Tax Liability'],
+                datasets: [
+                  { label: 'Old Tax Regime', data: [res.oldDeductions, res.oldTaxable, res.oldTotal], backgroundColor: '#94A3B8', borderRadius: 8 },
+                  { label: 'New Tax Regime (Budget 25-26)', data: [75000, res.newTaxable, res.newTotal], backgroundColor: '#111827', borderRadius: 8 }
+                ]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'top', labels: { font: { family: 'Inter', weight: 600 } } } },
+                scales: {
+                  x: { grid: { display: false } },
+                  y: { ticks: { callback: v => v >= 100000 ? '₹' + (v/100000).toFixed(0) + ' L' : '₹' + v } }
+                }
+              }
+            });
+          }
+        }
+
+        setupPortfolio() {
+          ['sip-input-amount', 'sip-input-return', 'sip-input-years', 'sip-input-inflation'].forEach(id => {
+            document.getElementById(id)?.addEventListener('input', () => this.renderPortfolio());
+          });
+        }
+
+        renderPortfolio() {
+          const sip = parseFloat(document.getElementById('sip-input-amount')?.value || 10000);
+          const rate = parseFloat(document.getElementById('sip-input-return')?.value || 12.5);
+          const years = parseInt(document.getElementById('sip-input-years')?.value || 15);
+          const inflation = parseFloat(document.getElementById('sip-input-inflation')?.value || 6.0);
+
+          document.getElementById('sip-val-amount').textContent = Formatters.currency(sip);
+          document.getElementById('sip-val-return').textContent = `${rate}%`;
+          document.getElementById('sip-val-years').textContent = `${years} Yrs`;
+
+          const sim = Engine.simulateWealth(sip, rate, years, inflation);
+
+          document.getElementById('sip-result-equity-val').textContent = Formatters.currency(sim.finalEquity);
+          document.getElementById('sip-result-invested').textContent = Formatters.currency(sim.totalInvested);
+          document.getElementById('sip-result-wealth-created').textContent = `+${Formatters.currency(sim.finalEquity - sim.totalInvested)} wealth created (${Formatters.currency(sim.finalEquity - sim.finalFd)} above FD)`;
+          document.getElementById('sip-result-real-power').textContent = `Real Inflation-Adjusted Value: ${Formatters.currency(sim.points[sim.points.length - 1].eqReal)}`;
+
+          // Flags
+          document.getElementById('portfolio-flags-list').innerHTML = `
+            <div class="flex items-center gap-2 text-xs text-emerald-800 font-bold mb-1">
+              <span>✓ Disciplined SIP Compounding:</span>
+              <span class="font-normal text-slate-600">Over ${years} years, rupee-cost averaging beats lump-sum timing in 98% of rolling windows.</span>
+            </div>
+          `;
+
+          // Chart
+          const canvas = document.getElementById('portfolio-wealth-chart');
+          if (canvas && window.Chart) {
+            if (this.charts.portfolio) this.charts.portfolio.destroy();
+            this.charts.portfolio = new Chart(canvas, {
+              type: 'line',
+              data: {
+                labels: sim.points.map(p => `Year ${p.year}`),
+                datasets: [
+                  { label: 'Nifty 50 Index SIP (12.5%)', data: sim.points.map(p => p.eqNominal), borderColor: '#111827', backgroundColor: 'rgba(17, 24, 39, 0.05)', fill: true, tension: 0.35, borderWidth: 2.5 },
+                  { label: 'Real Purchasing Power (Inflation Adj.)', data: sim.points.map(p => p.eqReal), borderColor: '#00D084', borderDash: [5, 5], fill: false, tension: 0.35, borderWidth: 2 },
+                  { label: 'Fixed Deposit (6.5%)', data: sim.points.map(p => p.fdNominal), borderColor: '#F59E0B', fill: false, tension: 0.35, borderWidth: 1.5 }
+                ]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'top' } },
+                scales: {
+                  x: { grid: { display: false } },
+                  y: { ticks: { callback: v => v >= 10000000 ? '₹' + (v/10000000).toFixed(1) + ' Cr' : '₹' + (v/100000).toFixed(0) + ' L' } }
+                }
+              }
+            });
+          }
+        }
+
+        setupMarket() {
+          document.getElementById('market-strategy-select')?.addEventListener('change', () => this.renderMarket());
+          document.getElementById('market-horizon-slider')?.addEventListener('input', (e) => {
+            document.getElementById('market-horizon-val').textContent = `${e.target.value} Years`;
+            this.renderMarket();
+          });
+        }
+
+        renderMarket() {
+          const strat = document.getElementById('market-strategy-select')?.value || 'dca';
+          const isDCA = strat === 'dca';
+
+          document.getElementById('backtest-corpus-val').textContent = isDCA ? '₹8,45,200' : '₹9,12,000';
+          document.getElementById('backtest-cagr-val').textContent = isDCA ? '13.5%' : '14.2%';
+          document.getElementById('backtest-dd-val').textContent = isDCA ? '-14.8%' : '-18.1%';
+          document.getElementById('backtest-sharpe-val').textContent = isDCA ? '1.42' : '1.28';
+          document.getElementById('backtest-desc-text').textContent = isDCA 
+            ? 'Systematic Rupee-Cost Averaging allocates on the 1st of every month regardless of market volatility. Proven to beat 95% of active day-traders over 5+ year horizons.'
+            : 'Dip Accumulator invests 70% in baseline SIP and retains 30% in liquid cash, triggering accelerated buys when Nifty 50 trades >3% below its 50-DMA.';
+
+          // Benchmarks
+          const bBody = document.getElementById('market-benchmarks-body');
+          if (bBody) {
+            bBody.innerHTML = [
+              { name: 'Nifty 50 Index', ticker: '^NSEI', cagr: '13.8%', pe: '21.4', vol: '14.2%', status: 'Bullish Steady' },
+              { name: 'Nifty Next 50', ticker: '^NN50', cagr: '16.2%', pe: '23.8', vol: '18.5%', status: 'High Growth' },
+              { name: 'Bank Nifty', ticker: '^NSEBANK', cagr: '14.5%', pe: '16.2', vol: '19.1%', status: 'Financial Anchor' },
+              { name: 'Sovereign Gold', ticker: 'GOLD-IN', cagr: '11.2%', pe: 'N/A', vol: '10.4%', status: 'Defensive Hedge' }
+            ].map(b => `
+              <tr class="border-b border-slate-100 text-xs">
+                <td class="p-3 font-bold text-slate-900">${b.name} <span class="text-slate-400 font-mono text-[10px]">(${b.ticker})</span></td>
+                <td class="p-3 text-emerald-600 font-bold">${b.cagr}</td>
+                <td class="p-3 text-slate-700 font-mono">${b.pe}</td>
+                <td class="p-3 text-slate-500">${b.vol}</td>
+                <td class="p-3"><span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 text-[11px] font-bold">${b.status}</span></td>
+              </tr>
+            `).join('');
+          }
+
+          // News
+          const newsBox = document.getElementById('market-news-feed');
+          if (newsBox) {
+            newsBox.innerHTML = [
+              { source: 'LiveMint', title: 'RBI pauses Repo Rate at 6.50% citing vigilant food inflation posture', sentiment: 'Positive (+0.8%)' },
+              { source: 'Economic Times', title: 'Union Budget capital expenditure outlay surges 11% to record ₹11.1 Lakh Cr', sentiment: 'Strong Bullish (+2.4%)' }
+            ].map(n => `
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs subtle-bg">
+                <div class="flex justify-between text-[11px] mb-1">
+                  <span class="font-bold text-slate-400">${n.source}</span>
+                  <span class="text-emerald-700 font-bold">${n.sentiment}</span>
+                </div>
+                <p class="font-bold text-slate-900">${n.title}</p>
+              </div>
+            `).join('');
+          }
+        }
+
+        setupSME() {
+          ['sme-gst-base', 'sme-gst-rate', 'sme-gst-itc', 'sme-loan-amount', 'sme-loan-rate', 'sme-loan-tenure', 'sme-loan-op-cash'].forEach(id => {
+            document.getElementById(id)?.addEventListener('input', () => this.renderSME());
+          });
+          document.getElementById('sme-gst-interstate')?.addEventListener('change', () => this.renderSME());
+        }
+
+        renderSME() {
+          const base = parseFloat(document.getElementById('sme-gst-base')?.value || 50000);
+          const rate = parseFloat(document.getElementById('sme-gst-rate')?.value || 18);
+          const itc = parseFloat(document.getElementById('sme-gst-itc')?.value || 0);
+          const isInter = document.getElementById('sme-gst-interstate')?.checked ?? false;
+
+          const gstAmt = base * (rate / 100);
+          const totalInv = base + gstAmt;
+          const netPay = Math.max(0, gstAmt - itc);
+
+          document.getElementById('sme-res-invoice-total').textContent = Formatters.currency(totalInv);
+          document.getElementById('sme-res-net-gst').textContent = Formatters.currency(netPay);
+          document.getElementById('sme-res-gst-breakdown').textContent = isInter
+            ? `IGST (${rate}%): ${Formatters.currency(gstAmt)}`
+            : `CGST (${rate/2}%): ${Formatters.currency(gstAmt/2)} + SGST (${rate/2}%): ${Formatters.currency(gstAmt/2)}`;
+
+          // Loan
+          const p = parseFloat(document.getElementById('sme-loan-amount')?.value || 1000000);
+          const r = (parseFloat(document.getElementById('sme-loan-rate')?.value || 11.5) / 100) / 12;
+          const n = parseInt(document.getElementById('sme-loan-tenure')?.value || 36);
+          const opCash = parseFloat(document.getElementById('sme-loan-op-cash')?.value || 85000);
+
+          const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+          const dscr = emi > 0 ? (opCash / emi) : 0;
+
+          document.getElementById('sme-loan-emi').textContent = `${Formatters.currency(emi)}/mo`;
+          document.getElementById('sme-loan-dscr').textContent = `${dscr.toFixed(2)}x`;
+
+          const vBadge = document.getElementById('sme-loan-verdict');
+          const vGuide = document.getElementById('sme-loan-guidance');
+
+          if (dscr >= 1.5) {
+            vBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300';
+            vBadge.textContent = 'SAFE TO BORROW';
+            vGuide.textContent = 'Operational cash flow comfortably covers the monthly installment with healthy cushion.';
+          } else {
+            vBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300';
+            vBadge.textContent = 'TIGHT LEVERAGE';
+            vGuide.textContent = 'Debt consumes a high portion of cash flows. Consider extending tenure or securing overdraft line.';
+          }
+
+          document.getElementById('sme-runway-months').textContent = '4.2 Months Runway';
+
+          // SME Chart
+          const canvas = document.getElementById('sme-runway-chart');
+          if (canvas && window.Chart) {
+            if (this.charts.sme) this.charts.sme.destroy();
+            this.charts.sme = new Chart(canvas, {
+              type: 'line',
+              data: {
+                labels: ['Day 1', 'Day 15', 'Day 30', 'Day 45', 'Day 60', 'Day 75', 'Day 90'],
+                datasets: [{
+                  label: 'Projected Working Capital Balance',
+                  data: [450000, 390000, 480000, 410000, 520000, 460000, 580000],
+                  borderColor: '#111827',
+                  backgroundColor: 'rgba(17, 24, 39, 0.05)',
+                  fill: true,
+                  tension: 0.35,
+                  borderWidth: 2
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                  x: { grid: { display: false } },
+                  y: { ticks: { callback: v => '₹' + (v/100000).toFixed(1) + ' L' } }
+                }
+              }
+            });
+          }
+        }
+
+        setupCopilot() {
+          const sendBtn = document.getElementById('btn-send-copilot');
+          const input = document.getElementById('copilot-user-input');
+
+          const handle = () => {
+            const q = input?.value?.trim();
+            if (!q) return;
+            this.sendCopilot(q);
+            input.value = '';
+          };
+
+          if (sendBtn) sendBtn.addEventListener('click', handle);
+          if (input) input.addEventListener('keydown', (e) => { if (e.key === 'Enter') handle(); });
+        }
+
+        sendCopilot(q) {
+          this.appendCopilot('user', q);
+          setTimeout(() => {
+            let reply = `Here is the tailored strategic perspective from ArthaOS for: *"${q}"*\n\n1. **Tax Assessment:** Compare your deductions against your crossover threshold in the **Tax Architect** tab.\n2. **UPI Safety:** You never need to enter your PIN to receive money.\n3. **Wealth Building:** Disciplined Nifty 50 compounding beats fixed deposits after 6% inflation.`;
+            if (/tax|regime|old.*new|ctc/i.test(q)) {
+              reply = `### 📊 Artha Tax Assessment (Budget 2025-26)\n\nBased on your profile:\n- **New Tax Regime:** Grants a revised **₹75,000 Standard Deduction** and wider tax slabs with zero tax up to ₹7.75 Lakhs under Section 87A rebate.\n- **Verdict:** If your itemized deductions (HRA, 80C, 80D, home loan) are below ₹3.85 Lakhs, **the New Regime is mathematically superior** with zero paperwork headache!`;
+            } else if (/scam|pin|qr|collect/i.test(q)) {
+              reply = `### 🛡️ UPI Shield Critical Advisory\n\n**The Golden Rule of Digital Payments in India:**\n> **You NEVER have to enter your UPI PIN to RECEIVE money.**\n> Typing your 4 or 6-digit PIN ALWAYS debits money from your account.\n\n*If you encounter a suspicious collect request, reject it immediately or file on cybercrime.gov.in (Helpline: 1930).*`;
+            } else if (/perplex|startup|equity/i.test(q)) {
+              reply = `### ⚡ Startup Equity & Wealth Structuring\n\nFor high-growth frontier tech engineers:\n1. **Vesting & Tax Events:** Track perquisite taxes on equity vest days.\n2. **Liquid Core:** Keep 6 months of living expenses in sweep-in FDs.\n3. **Long-Term Engine:** Automate broad market index SIPs to counterbalance single-company equity concentration.`;
+            } else if (/bernstein|sharpe|market|dma/i.test(q)) {
+              reply = `### 📈 Quantitative Strategy Breakdown\n\n- **Rupee Cost Averaging (DCA):** Sharpe Ratio **1.42**, Max Drawdown **-14.8%** over 5-year rolling windows.\n- **50-DMA Dip Accumulator:** Generates +0.7% alpha with higher volatility (Sharpe 1.28) by holding 30% liquid arbitrage reserves to buy market dips >3% below 50-DMA.`;
+            }
+            this.appendCopilot('assistant', reply);
+          }, 350);
+        }
+
+        appendCopilot(sender, text) {
+          const container = document.getElementById('copilot-messages-container');
+          if (!container) return;
+          const div = document.createElement('div');
+          div.className = `flex gap-3 text-xs mb-3 ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+          div.innerHTML = sender === 'user' ? `
+            <div class="bg-black text-white p-3.5 rounded-2xl rounded-tr-none max-w-[80%] font-medium shadow-sm">
+              ${text}
+            </div>
+            <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center font-bold text-xs shrink-0">You</div>
+          ` : `
+            <div class="w-8 h-8 rounded-xl bg-black text-white flex items-center justify-center font-bold text-xs shrink-0">AI</div>
+            <div class="bg-slate-50 border border-slate-200 text-slate-800 p-4 rounded-2xl rounded-tl-none max-w-[85%] leading-relaxed subtle-bg">
+              ${text.replace(/\n/g, '<br/>')}
+            </div>
+          `;
+          container.appendChild(div);
+          container.scrollTop = container.scrollHeight;
+        }
+
+        setupThemeToggle() {
+          const btn = document.getElementById('btn-theme-toggle');
+          if (btn) {
+            btn.addEventListener('click', () => {
+              document.body.classList.toggle('dark-mode');
+              const isDark = document.body.classList.contains('dark-mode');
+              btn.innerHTML = isDark ? '<i data-lucide="sun" class="w-4 h-4 text-amber-400"></i>' : '<i data-lucide="moon" class="w-4 h-4 text-slate-700"></i>';
+              if (window.lucide) window.lucide.createIcons();
+              this.showToast(isDark ? 'Switched to Obsidian Matte Theme' : 'Switched to Porcelain Light Theme');
+            });
+          }
+        }
+
+        setupExport() {
+          const btn = document.getElementById('btn-export-audit');
+          if (btn) {
+            btn.addEventListener('click', () => {
+              const j = Judges[this.currentJudge];
+              const content = `================================================================================\n              ARTHA OS - COMPREHENSIVE FINANCIAL AUDIT REPORT\n                        Evaluated for Judge: ${j.name} (${j.company})\n                        Designation: ${j.title}\n                        Date: ${new Date().toLocaleDateString('en-IN')}\n================================================================================\n\n1. EXECUTIVE PROFILE\n   - Entity: ${j.name} • ${j.company} (${j.title})\n   - Primary Linked Account: ${j.vpa}\n   - Total Liquid Capital: ${j.balance}\n\n2. TAX ARCHITECT VERDICT (Budget 2025-26)\n   - Gross Annual CTC: ${Formatters.currency(j.ctc)}\n   - Recommended Tax Strategy: NEW REGIME (Higher net savings & ₹75k standard deduction)\n\n3. ZERO-DAY UPI SHIELD STATUS\n   - Reverse-QR PIN trap defense: ACTIVE\n   - Phishing & VPA impersonation heuristics: ARMED\n\n4. WEALTH & ASSET ALLOCATION ROADMAP\n   - Target Equity Allocation: 65% in Broad Market Index Funds (Nifty 50)\n   - Liquid Emergency Buffer: 6 months living expenses\n\n================================================================================\n        ArthaOS • Autonomous AI Financial Operating System (Arthathon 2026)\n================================================================================`;
+              const blob = new Blob([content], { type: 'text/plain' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `ArthaOS_Audit_${this.currentJudge}_${Date.now()}.txt`;
+              a.click();
+              URL.revokeObjectURL(url);
+              this.showToast('Downloaded Financial Audit Report!');
+              if (window.confetti) window.confetti({ particleCount: 50, spread: 70 });
+            });
+          }
+        }
+
+        showToast(msg) {
+          const toast = document.getElementById('app-toast');
+          if (!toast) return;
+          toast.textContent = msg;
+          toast.classList.remove('opacity-0', 'pointer-events-none');
+          toast.classList.add('opacity-100');
+          setTimeout(() => {
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0', 'pointer-events-none');
+          }, 2800);
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        window.artha = new ArthaApp();
+        window.artha.init();
+      });
+    })();
+  </script>
+
+</body>
+</html>
