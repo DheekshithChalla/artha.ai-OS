@@ -10,7 +10,7 @@ cat << 'EOF' > README.md
 
 ---
 
-## 🌟 Executive Summary & Real-World Impact
+## Executive Summary & Real-World Impact
 
 India conducts over **14 Billion UPI transactions every month**, powering the fastest digital payment infrastructure on Earth. Yet, the average citizen, tech professional, and MSME founder faces severe financial vulnerabilities:
 1. **The Cyber-Fraud Epidemic**: Reverse-QR payment scams, fake electricity disconnection threats, and spoofed bank VPAs drain hundreds of crores from everyday citizens and professionals.
@@ -23,22 +23,22 @@ India conducts over **14 Billion UPI transactions every month**, powering the fa
 
 ---
 
-## 👥 Evaluated by the 6 Official Arthathon 2026 Judges
+## Evaluated by the 6 Official Arthathon 2026 Judges
 
 ArthaOS features dynamic, personalized financial scenarios for the **6 actual AI researchers, engineers, and finance experts** reviewing the hackathon:
 
 | Judge | Designation & Organization | Personalized In-App Scenario |
 | :--- | :--- | :--- |
-| **👨‍💻 Pawan Nagwani** | Senior Engineer, Search AI @ **Google** | ₹48.5L CTC, Google RSU vesting schedules, Old vs. New tax optimization, Bangalore metro rent deductions. |
+| ** Pawan Nagwani** | Senior Engineer, Search AI @ **Google** | ₹48.5L CTC, Google RSU vesting schedules, Old vs. New tax optimization, Bangalore metro rent deductions. |
 | **⚡ Kumar Pallav** | Member of Technical Staff @ **Perplexity** | ₹42.0L CTC, early frontier AI equity, index compounding, tech deduction advisory. |
-| **👩‍💼 Richa Agrawal** | Senior Principal Engineer @ **Cadence** | ₹54.0L CTC, executive deductions, maximum Section 80C, 80D (senior parents), and Home Loan Sec 24(b) breakeven. |
-| **🔬 Pravesh Agrawal** | Research Scientist @ **Mistral AI** | ₹51.0L CTC, foundational open-source AI researcher, currency depreciation hedging with Sovereign Gold Bonds (SGB). |
-| **📊 Viola Chen** | Senior Research Associate @ **Bernstein** | ₹58.0L CTC, Wall Street institutional equity research, quantitative Sharpe ratios & macroeconomic news sentiment models. |
-| **🚀 Manoj Sarda** | Co-founder @ **Elimentary** | ₹32.0L CTC, startup entrepreneur, 90-day working capital runway, GST Input Tax Credit (ITC) & loan DSCR stress-testing. |
+| **  Richa Agrawal** | Senior Principal Engineer @ **Cadence** | ₹54.0L CTC, executive deductions, maximum Section 80C, 80D (senior parents), and Home Loan Sec 24(b) breakeven. |
+| **  Pravesh Agrawal** | Research Scientist @ **Mistral AI** | ₹51.0L CTC, foundational open-source AI researcher, currency depreciation hedging with Sovereign Gold Bonds (SGB). |
+| **  Viola Chen** | Senior Research Associate @ **Bernstein** | ₹58.0L CTC, Wall Street institutional equity research, quantitative Sharpe ratios & macroeconomic news sentiment models. |
+| **  Manoj Sarda** | Co-founder @ **Elimentary** | ₹32.0L CTC, startup entrepreneur, 90-day working capital runway, GST Input Tax Credit (ITC) & loan DSCR stress-testing. |
 
 ---
 
-## 🏆 Full Coverage of All 6 Arthathon 2026 Themes
+##  Full Coverage of All 6 Arthathon 2026 Themes
 
 | Hackathon Theme | ArthaOS Module | Key Technical Innovation |
 | :--- | :--- | :--- |
@@ -51,7 +51,7 @@ ArthaOS features dynamic, personalized financial scenarios for the **6 actual AI
 
 ---
 
-## 🎨 UI/UX: High-End Editorial FinTech (Stellar & Synex Style)
+##  UI/UX: High-End Editorial FinTech (Stellar & Synex Style)
 
 Inspired by modern design benchmarks (**Stellar by Phenomenon Labs** and **Synex / Awsmd**):
 - **Editorial Porcelain & Alabaster Canvas**: Clean, spacious background with subtle ambient light blooms and high-contrast typography.
@@ -61,7 +61,7 @@ Inspired by modern design benchmarks (**Stellar by Phenomenon Labs** and **Synex
 
 ---
 
-## ⚡ Zero-CORS Standalone Architecture
+## Zero-CORS Standalone Architecture
 
 ArthaOS requires **zero external build steps or heavy node_modules** and works natively on any browser:
 - **No CORS Errors**: Self-contained architecture allows opening directly via `file:///.../index.html` (double-clicking from Finder/Downloads) or running on any web server.
