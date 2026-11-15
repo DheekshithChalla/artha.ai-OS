@@ -7,6 +7,8 @@
 [![UI Aesthetics](https://img.shields.io/badge/Design-Stellar_%26_Synex_Editorial-0F172A?style=for-the-badge)](index.html)
 [![Zero Dependency](https://img.shields.io/badge/Architecture-Zero--CORS_Standalone-blue?style=for-the-badge)](index.html)
 
+## LINK:
+[Artha.ai](https://dheekshithchalla.github.io/artha.ai-OS/)
 ---
 
 ##  Executive Summary & Real-World Impact
