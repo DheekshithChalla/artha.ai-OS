@@ -3,8 +3,8 @@
  * Coordinates UI tabs, judge personas, reactive engines, and live charts
  */
 
-import { MockTransactions, SampleBankSMSList, SampleScamTestCases, SubscriptionsLeakCatalog } from './data/mockData.js';
-import { JudgePersonas } from './data/personas.js';
+import { MockTransactions, SampleBankSMSList, SampleScamTestCases, SubscriptionsLeakCatalog } from './mockData.js';
+import { JudgePersonas } from './personas.js';
 import { Formatters } from './utils/formatters.js';
 import { BudgetingEngine } from './modules/budgeting.js';
 import { ScamShieldEngine } from './modules/scamShield.js';

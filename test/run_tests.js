@@ -3,12 +3,12 @@
  * Validates Tax calculations, UPI Scam Detection, SMS Ingestion, and SME Formulas
  */
 
-import { Formatters } from '../js/utils/formatters.js';
-import { BudgetingEngine } from '../js/modules/budgeting.js';
-import { ScamShieldEngine } from '../js/modules/scamShield.js';
-import { TaxEngine } from '../js/modules/taxEngine.js';
-import { PortfolioEngine } from '../js/modules/portfolio.js';
-import { SmeFinanceEngine } from '../js/modules/smeFinance.js';
+import { Formatters } from '../utils/formatters.js';
+import { BudgetingEngine } from '../modules/budgeting.js';
+import { ScamShieldEngine } from '../modules/scamShield.js';
+import { TaxEngine } from '../modules/taxEngine.js';
+import { PortfolioEngine } from '../modules/portfolio.js';
+import { SmeFinanceEngine } from '../modules/smeFinance.js';
 
 let passed = 0;
 let failed = 0;
