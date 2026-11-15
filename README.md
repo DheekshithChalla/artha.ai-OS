@@ -29,12 +29,12 @@ ArthaOS features dynamic, personalized financial scenarios for the **6 actual AI
 
 | Judge | Designation & Organization | Personalized In-App Scenario |
 | :--- | :--- | :--- |
-| ** Pawan Nagwani** | Senior Engineer, Search AI @ **Google** | ₹50L CTC, Google RSU vesting schedules, Old vs. New tax optimization, Bangalore metro rent deductions. |
-| **⚡ Kumar Pallav** | Member of Technical Staff @ **Perplexity** | ₹50L CTC, early frontier AI equity, index compounding, tech deduction advisory. |
-| **  Richa Agrawal** | Senior Principal Engineer @ **Cadence** | ₹50L CTC, executive deductions, maximum Section 80C, 80D (senior parents), and Home Loan Sec 24(b) breakeven. |
-| **  Pravesh Agrawal** | Research Scientist @ **Mistral AI** | ₹50L CTC, foundational open-source AI researcher, currency depreciation hedging with Sovereign Gold Bonds (SGB). |
-| **  Viola Chen** | Senior Research Associate @ **Bernstein** | ₹50L CTC, Wall Street institutional equity research, quantitative Sharpe ratios & macroeconomic news sentiment models. |
-| **  Manoj Sarda** | Co-founder @ **Elimentary** | ₹50L CTC, startup entrepreneur, 90-day working capital runway, GST Input Tax Credit (ITC) & loan DSCR stress-testing. |
+| Pawan Nagwani| Senior Engineer, Search AI @ **Google** | ₹50L CTC, Google RSU vesting schedules, Old vs. New tax optimization, Bangalore metro rent deductions. |
+| Kumar Pallav| Member of Technical Staff @ **Perplexity** | ₹50L CTC, early frontier AI equity, index compounding, tech deduction advisory. |
+| Richa Agrawal| Senior Principal Engineer @ **Cadence** | ₹50L CTC, executive deductions, maximum Section 80C, 80D (senior parents), and Home Loan Sec 24(b) breakeven. |
+| Pravesh Agrawal| Research Scientist @ **Mistral AI** | ₹50L CTC, foundational open-source AI researcher, currency depreciation hedging with Sovereign Gold Bonds (SGB). |
+| Viola Chen | Senior Research Associate @ **Bernstein** | ₹50L CTC, Wall Street institutional equity research, quantitative Sharpe ratios & macroeconomic news sentiment models. |
+| Manoj Sarda| Co-founder @ **Elimentary** | ₹50L CTC, startup entrepreneur, 90-day working capital runway, GST Input Tax Credit (ITC) & loan DSCR stress-testing. |
 
 ---
 
