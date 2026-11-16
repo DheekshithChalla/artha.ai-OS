@@ -7,10 +7,18 @@
 [![UI Aesthetics](https://img.shields.io/badge/Design-Stellar_%26_Synex_Editorial-0F172A?style=for-the-badge)](index.html)
 [![Zero Dependency](https://img.shields.io/badge/Architecture-Zero--CORS_Standalone-blue?style=for-the-badge)](index.html)
 
-## LINK:
-[Artha.ai](https://dheekshithchalla.github.io/artha.ai-OS/)
+## LINK: [Artha.ai](https://dheekshithchalla.github.io/artha.ai-OS/)
 ---
 
+# The following AI-powered development tools were used during the development of this project:
+
+* Google Antigravity: AI-assisted development, code generation, implementation support, and debugging.
+* OpenAI Codex: AI-assisted coding, code refinement, debugging, and development support.
+
+My Contribution:
+The project concept, feature decisions, development support, development direction, integration, and final testing were handled by me.
+
+---
 ##  Executive Summary & Real-World Impact
 
 India conducts over **14 Billion UPI transactions every month**, powering the fastest digital economy on Earth. Yet, the average citizen, tech professional, and MSME founder faces severe financial blindspots:
